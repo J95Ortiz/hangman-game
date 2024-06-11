@@ -5,11 +5,12 @@ import random
 
 # Setting up the names for word files
 easy = open("easy.txt", "r")
-print(easy)
+#print(easy)
 medium = open("medium.txt", "r")
-print(medium)
+#print(medium)
 ########## hard = 
 ########## mix = 
+###user_guesses = ["m", "s"]
 
 # Fn asking for User's name, will add code to set up game
 def introduction():
@@ -35,9 +36,10 @@ def word_choice(level):
         word_selector = easy.read().split("\n")
     elif level == "medium":
         word_selector = medium.read().split("\n")
-    
-    word = random.choice(word_selector)
-    return word
+    # Assigns the word chosen by random.choice to the variable "word"
+    # "word" is the word the User will try and guess
+    game_word = random.choice(word_selector)
+    return game_word
     #print(word)
 
 # Calls the word_choice fn, and assigns game_word a value to be used in the next fn (hide_word)
@@ -45,15 +47,15 @@ def word_choice(level):
 ###print(game_word)
 
 # Fn to go through letters in game_word and replace each with "_"        
-def hide_word(game_word):
-    blank = "_" * len(game_word)
-    return blank
+###def hide_word(game_word):
+###    blank = "_" * len(game_word)
+###    return blank
 
 #####random word to test fn, delete before submission!!!!!!############
-game_word = "master" 
+#game_word = "master" 
 
 # Calls the hide_word fn, and assigns hidden_word the game_word with letters replaced as blanks
-hidden_word = hide_word(game_word)
+###hidden_word = hide_word(game_word)
 ###print(hidden_word)
 
 # Fn to check if User's guess is 
@@ -61,12 +63,23 @@ def check_guess(game_word):
     user_guess = input("Choose a letter you think might be in the word: ").lower()
     if user_guess.isalpha():
         if user_guess in game_word:
-            print(hidden_word.replace("_", user_guess)) ### Need to change this as replaces all the letters instead of the right one :(((
+            user_guesses.append(user_guess)
+            print("That's in!")
 
-lol = check_guess(game_word)
 
-            
-            
+
+def check_guess2(game_word, user_guesses):
+    word_with_blanks = ""
+    for letter in game_word:
+        if letter in user_guesses:
+            word_with_blanks += letter
+        else:
+            word_with_blanks += "_"
+    print(word_with_blanks)
+    ##return word_with_blanks
+
+
+
 
 
 
@@ -75,3 +88,20 @@ lol = check_guess(game_word)
 ###introduction() - Gets user's name and level desired
 ###word_choice() - Takes the result from introduction() and chooses a word from the corresponding txt file. Then assigns it the variable name "game_word"
 ###hide_word() - Creates a new variable "blank" which is a string that has as many "_" as "game_word" has letters. "blank" is assignedd the variable "hidden_word" outside the fn when called
+
+user_guesses = []
+
+def main():
+    #attempts = ""
+    intro = introduction()
+    word = word_choice(intro)
+    blank = "_" * len(word)
+    print(f"This is your word {blank}")
+    guess = check_guess(word)
+    check_guess2(word, user_guesses)
+    #print(check_guess2(word, user_guesses))
+
+# Fn to start game
+main()
+
+

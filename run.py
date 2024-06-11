@@ -50,10 +50,28 @@ def hide_word(game_word):
     return blank
 
 #####random word to test fn, delete before submission!!!!!!############
-#game_word = "master" 
+game_word = "master" 
 
 # Calls the hide_word fn, and assigns hidden_word the game_word with letters replaced as blanks
-###hidden_word = hide_word(game_word)
+hidden_word = hide_word(game_word)
 ###print(hidden_word)
 
+# Fn to check if User's guess is 
+def check_guess(game_word):
+    user_guess = input("Choose a letter you think might be in the word: ").lower()
+    if user_guess.isalpha():
+        if user_guess in game_word:
+            print(hidden_word.replace("_", user_guess)) ### Need to change this as replaces all the letters instead of the right one :(((
 
+lol = check_guess(game_word)
+
+            
+            
+
+
+
+
+###FUNCTIONS & VARIABLES:
+###introduction() - Gets user's name and level desired
+###word_choice() - Takes the result from introduction() and chooses a word from the corresponding txt file. Then assigns it the variable name "game_word"
+###hide_word() - Creates a new variable "blank" which is a string that has as many "_" as "game_word" has letters. "blank" is assignedd the variable "hidden_word" outside the fn when called

@@ -40,28 +40,20 @@ def word_choice(level):
     return word
     #print(word)
 
-# Calls the word_choice fn, and assigns level_used a value """"to be used in the next fn (word_choice)"""""
+# Calls the word_choice fn, and assigns game_word a value to be used in the next fn (hide_word)
 ###game_word = word_choice(level)
 ###print(game_word)
 
-# Fn to go through letters in game_word and replace each with "_"
-def make_word_secret(game_word):
-    game_word = game_word.split()
-    print(game_word)
-    x = 0
-    while x <= len(game_word):
-        game_word.insert(game_word[x], "_")
-        x +=1
-        print(game_word)
-    print(game_word)
-#print(game_word)
+# Fn to go through letters in game_word and replace each with "_"        
+def hide_word(game_word):
+    blank = "_" * len(game_word)
+    return blank
 
+#####random word to test fn, delete before submission!!!!!!############
+#game_word = "master" 
 
-#    for letter in game_word:
-#        print(game_word.replace(letter, "_"))
-        
-game_word = "meticulous"
-make_word_secret(game_word)
-
+# Calls the hide_word fn, and assigns hidden_word the game_word with letters replaced as blanks
+###hidden_word = hide_word(game_word)
+###print(hidden_word)
 
 

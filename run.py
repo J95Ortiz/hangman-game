@@ -25,8 +25,8 @@ def introduction():
         introduction()
 
 # Calls the introduction fn, and assigns level a value to be used in the next fn (word_choice)
-level = introduction()
-print(level)
+###level = introduction()
+###print(level)
 
 
 # Fn takes level's value from prev. fn & uses it to open the relevant text file, then chooses a random word to use.
@@ -41,7 +41,27 @@ def word_choice(level):
     #print(word)
 
 # Calls the word_choice fn, and assigns level_used a value """"to be used in the next fn (word_choice)"""""
-level_used = word_choice(level)
-print(level_used)
+###game_word = word_choice(level)
+###print(game_word)
+
+# Fn to go through letters in game_word and replace each with "_"
+def make_word_secret(game_word):
+    game_word = game_word.split()
+    print(game_word)
+    x = 0
+    while x <= len(game_word):
+        game_word.insert(game_word[x], "_")
+        x +=1
+        print(game_word)
+    print(game_word)
+#print(game_word)
+
+
+#    for letter in game_word:
+#        print(game_word.replace(letter, "_"))
+        
+game_word = "meticulous"
+make_word_secret(game_word)
+
 
 

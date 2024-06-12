@@ -11,11 +11,12 @@ medium = open("medium.txt", "r")
 ########## hard = 
 ########## mix = 
 
+
 # Fn asking for User's name, will add code to set up game
 def introduction():
     print("Hello!")
     name = input("What's your name? \n")
-    game_request = input(f'Welcome to the Hangman Game {name}! \nDid you want to have a game?')
+    game_request = input(f'Welcome to the Hangman Game {name}! \nDid you want to have a game?\n')
     if game_request.lower() == "yes":
          # Code requesting User chooses how hard the game should be
          print("There are three difficulty levels you can choose from (Easy, Medium and Hard), or you can have a mix of them all. \n")
@@ -59,11 +60,23 @@ def word_choice(level):
 
 # Fn to check if User's guess is 
 def check_guess(game_word):
+    wrong_guesses = 0
+    # Gets User's input
     user_guess = input("Choose a letter you think might be in the word: ").lower()
+    # Nested statment to check if input is valid
     if user_guess.isalpha():
         if user_guess in game_word:
-            user_guesses.append(user_guess)
             print("That's in!")
+            user_guesses.append(user_guess)
+        # Guess is a letter but wrong
+        else:
+            print("That letter isn't in")
+            wrong_guesses = 1 + int(incorrect_guesses)
+            print(f"You've guessed wrong {wrong_guesses} times.\nYou have {7-wrong_guesses} guesses left")
+    # Guess is not a letter
+    else:
+        print("Not a letter, please choose a letter")
+            
         
 
 
@@ -99,9 +112,10 @@ def check_guess2(game_word, user_guesses):
 
 
 user_guesses = []
+incorrect_guesses = 0
 
 def main():
-    #attempts = ""
+    
     intro = introduction() # Asks User for name and level they want to play
     word = word_choice(intro) # Uses User's level request to access relevant file and choose a word for them to guess
     blank = "_" * len(word) # Swaps the letters for "_"s

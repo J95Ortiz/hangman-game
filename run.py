@@ -10,7 +10,6 @@ medium = open("medium.txt", "r")
 #print(medium)
 ########## hard = 
 ########## mix = 
-###user_guesses = ["m", "s"]
 
 # Fn asking for User's name, will add code to set up game
 def introduction():
@@ -65,6 +64,7 @@ def check_guess(game_word):
         if user_guess in game_word:
             user_guesses.append(user_guess)
             print("That's in!")
+        
 
 
 
@@ -76,32 +76,49 @@ def check_guess2(game_word, user_guesses):
         else:
             word_with_blanks += "_"
     print(word_with_blanks)
-    ##return word_with_blanks
+    print(f"You've guessed these letters: {user_guesses}")
+    
+
+### IF WRONG GUESS, ADD TO HANGMAN
+### WHILE CHANCES > 0 AND LETTERS IN WORD, RUN GAME
+### DRAW HANGMAN, IF CHANCES = 7 FULL, IF CHANCES = 6 ADD HEAD, ETC
 
 
 
 
 
 
-
-###FUNCTIONS & VARIABLES:
+###FUNCTIONS:
 ###introduction() - Gets user's name and level desired
 ###word_choice() - Takes the result from introduction() and chooses a word from the corresponding txt file. Then assigns it the variable name "game_word"
 ###hide_word() - Creates a new variable "blank" which is a string that has as many "_" as "game_word" has letters. "blank" is assignedd the variable "hidden_word" outside the fn when called
+
+###VARIABLES
+###easy = open("easy.txt", "r")
+###medium = open("medium.txt", "r")
+
 
 user_guesses = []
 
 def main():
     #attempts = ""
-    intro = introduction()
-    word = word_choice(intro)
-    blank = "_" * len(word)
-    print(f"This is your word {blank}")
-    guess = check_guess(word)
-    check_guess2(word, user_guesses)
+    intro = introduction() # Asks User for name and level they want to play
+    word = word_choice(intro) # Uses User's level request to access relevant file and choose a word for them to guess
+    blank = "_" * len(word) # Swaps the letters for "_"s
+    print(f"This is your word {blank}") # Displays the word to the User
+    guess = check_guess(word) # Asks User for a guess, tells them if it's in and adds their guess to "user_guesses" list
+    check_guess2(word, user_guesses) # Swaps "_" for letter in word if it's in
     #print(check_guess2(word, user_guesses))
+
 
 # Fn to start game
 main()
 
 
+### word_with_guesses = ""
+###     word_with_blanks = word_with_guesses
+###     print(word_with_guesses)
+###     ##return word_with_blanks
+###     while "_" in word_with_guesses:
+###         check_guess(game_word)
+###         check_guess2(game_word, user_guesses)

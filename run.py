@@ -51,9 +51,6 @@ def word_choice(level):
 ###    blank = "_" * len(game_word)
 ###    return blank
 
-#####random word to test fn, delete before submission!!!!!!############
-#game_word = "master" 
-
 # Calls the hide_word fn, and assigns hidden_word the game_word with letters replaced as blanks
 ###hidden_word = hide_word(game_word)
 ###print(hidden_word)
@@ -82,19 +79,18 @@ game_word = "colder"
 # ## ###             
         
 
+def check_guess(game_word, user_guesses):
+    word_with_guesses = ""
+    for letter in game_word:
+        if letter in user_guesses:
+            word_with_guesses += letter
+        else:
+            word_with_guesses += "_"
+    #print(word_with_blanks)
+    #print(f"You've guessed these letters: {user_guesses}")
+    return word_with_guesses
 
-
-### ## # def check_guess2(game_word, user_guesses):
-### ## #     word_with_blanks = ""
-### ## #     for letter in game_word:
-### ## #         if letter in user_guesses:
-### ## #             word_with_blanks += letter
-### ## #         else:
-### ## #             word_with_blanks += "_"
-### ## #     print(word_with_blanks)
-### ## #     print(f"You've guessed these letters: {user_guesses}")
-### ## #     return word_with_blanks
-    
+#check_guess2(word, user_guesses) # Swaps "_" for letter in word if it's in    
 
 ### IF WRONG GUESS, ADD TO HANGMAN
 ### WHILE CHANCES > 0 AND LETTERS IN WORD, RUN GAME
@@ -143,7 +139,6 @@ def game_start():
     intro = introduction() # Asks User for name and level they want to play
     word = word_choice(intro) # Uses User's level request to access relevant file and choose a word for them to guess
     blank = "_" * len(word) # Swaps the letters for "_"s
-    word_with_guesses = ""
     print(f"This is your word {blank}") # Displays the word to the User
     while chances > 0:
         user_guess = input("Choose a letter you think might be in the word: ").lower()
@@ -151,38 +146,28 @@ def game_start():
         if user_guess.isalpha():
             user_guesses.append(user_guess)
             if user_guess in word:
-                print("That's in!")
-                for letter in word:
-                    word_with_guesses += letter
-                    print(f"This is your word {blank}")
-                                    
-        
-        # Guess is a letter but wrong  
+                print("That's in!")            
+                #print(f"This is your word {word_with_guesses}")                    
+            # Guess is a letter but wrong  
             else:
                 print("That letter isn't in")
-                user_guesses.append(user_guess)
                 chances -= 1
-                print(f"This is your word {blank}")
                 print(f"You have {chances} guesses left")
+                print(f"This is your word {blank}")       
+        
         # Guess is not a letter
         else:
             print("Not a letter, please choose a letter")
-            word_with_guesses = check_guess2(word, user_guesses)       
-            print(word_with_guesses)
+            print(f"This is your word {blank}")
+            #word_with_guesses = check_guess2(word, user_guesses)       
+            #print(word_with_guesses)
+        
+        word_with_guesses = check_guess(word, user_guesses)
+        print(f"This is your word {word_with_guesses}")        
+    
 
 
-
-def check_guess2(game_word, user_guesses):
-    word_with_blanks = ""
-    for letter in game_word:
-        if letter in user_guesses:
-            word_with_blanks += letter
-        else:
-            word_with_blanks += "_"
-    print(word_with_blanks)
-    print(f"You've guessed these letters: {user_guesses}")
-
-#check_guess2(word, user_guesses) # Swaps "_" for letter in word if it's in
+game_start()
 
 
 

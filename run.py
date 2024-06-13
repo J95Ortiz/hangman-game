@@ -60,40 +60,40 @@ def word_choice(level):
 
 game_word = "colder"
 
-# Fn to check if User's guess is 
-def check_guess(game_word):
-    wrong_guesses = 0
-    # Gets User's input
-    user_guess = input("Choose a letter you think might be in the word: ").lower()
-    # Nested statment to check if input is valid
-    if user_guess.isalpha():
-        if user_guess in game_word:
-            print("That's in!")
-            user_guesses.append(user_guess)
-        # Guess is a letter but wrong
-        else:
-            print("That letter isn't in")
-            user_guesses.append(user_guess)
-            wrong_guesses += 1
-            print(f"You have {7-wrong_guesses} guesses left")
-    # Guess is not a letter
-    else:
-        print("Not a letter, please choose a letter")
-            
+# ## ### # Fn to check if User's guess is 
+# ## ### def check_guess(game_word):
+# ## ###     wrong_guesses = 0
+# ## ###     # Gets User's input
+# ## ###     user_guess = input("Choose a letter you think might be in the word: ").lower()
+# ## ###     # Nested statment to check if input is valid
+# ## ###     if user_guess.isalpha():
+# ## ###         if user_guess in game_word:
+# ## ###             print("That's in!")
+# ## ###             user_guesses.append(user_guess)
+# ## ###         # Guess is a letter but wrong
+# ## ###         else:
+# ## ###             print("That letter isn't in")
+# ## ###             user_guesses.append(user_guess)
+# ## ###             wrong_guesses += 1
+# ## ###             print(f"You have {7-wrong_guesses} guesses left")
+# ## ###     # Guess is not a letter
+# ## ###     else:
+# ## ###         print("Not a letter, please choose a letter")
+# ## ###             
         
 
 
 
-def check_guess2(game_word, user_guesses):
-    word_with_blanks = ""
-    for letter in game_word:
-        if letter in user_guesses:
-            word_with_blanks += letter
-        else:
-            word_with_blanks += "_"
-    print(word_with_blanks)
-    print(f"You've guessed these letters: {user_guesses}")
-    return word_with_blanks
+### ## # def check_guess2(game_word, user_guesses):
+### ## #     word_with_blanks = ""
+### ## #     for letter in game_word:
+### ## #         if letter in user_guesses:
+### ## #             word_with_blanks += letter
+### ## #         else:
+### ## #             word_with_blanks += "_"
+### ## #     print(word_with_blanks)
+### ## #     print(f"You've guessed these letters: {user_guesses}")
+### ## #     return word_with_blanks
     
 
 ### IF WRONG GUESS, ADD TO HANGMAN
@@ -125,57 +125,64 @@ def main():
     word = "colder"
     blank = "_" * len(word) # Swaps the letters for "_"s
     print(f"This is your word {blank}") # Displays the word to the User
-    guess = check_guess(word) # Asks User for a guess, tells them if it's in and adds their guess to "user_guesses" list
-    check_guess2(word, user_guesses) # Swaps "_" for letter in word if it's in
-    word_with_guesses = check_guess2(word, user_guesses)       
+    ##guess = check_guess(word) # Asks User for a guess, tells them if it's in and adds their guess to "user_guesses" list
+    ##check_guess2(word, user_guesses) # Swaps "_" for letter in word if it's in
+    ##word_with_guesses = check_guess2(word, user_guesses)       
     #print(word_with_guesses)
     #print(word)
-    print(chances)
+    #print(chances)
     #print(check_guess2(word, user_guesses))
 
 
 # Fn to start game
-main()
+# main()
 
-# ## ### def game_start():
-# ## ### user_guesses = []
-# ## ### chances = 7
-# ## ### intro = introduction() # Asks User for name and level they want to play
-# ## ### word = word_choice(intro) # Uses User's level request to access relevant file and choose a word for them to guess
-# ## ### while chances > 0:
-# ## ### blank = "_" * len(word) # Swaps the letters for "_"s
-# ## ### print(f"This is your word {blank}") # Displays the word to the User
-# ## ###     user_guess = input("Choose a letter you think might be in the word: ").lower()
-# ## ###     # Nested statment to check if input is valid
-# ## ###     if user_guess.isalpha():
-# ## ###         if user_guess in game_word:
-# ## ###             print("That's in!")
-# ## ###             user_guesses.append(user_guess)
-# ## ###         # Guess is a letter but wrong
-# ## ###         else:
-# ## ###             print("That letter isn't in")
-# ## ###             user_guesses.append(user_guess)
-# ## ###             chances -= 1
-# ## ###             print(f"You have {chances} guesses left")
-# ## ###     # Guess is not a letter
-# ## ###     else:
-# ## ###         print("Not a letter, please choose a letter")
-# ## ###      word_with_guesses = check_guess2(word, user_guesses)       
-# ## ###         print(word_with_guesses)
-# ## ### 
-# ## ### 
-# ## ### 
-# ## ### def check_guess2(game_word, user_guesses):
-# ## ###     word_with_blanks = ""
-# ## ###     for letter in game_word:
-# ## ###         if letter in user_guesses:
-# ## ###             word_with_blanks += letter
-# ## ###         else:
-# ## ###             word_with_blanks += "_"
-# ## ###     print(word_with_blanks)
-# ## ###     print(f"You've guessed these letters: {user_guesses}")
+def game_start():
+    user_guesses = []
+    chances = 7
+    intro = introduction() # Asks User for name and level they want to play
+    word = word_choice(intro) # Uses User's level request to access relevant file and choose a word for them to guess
+    blank = "_" * len(word) # Swaps the letters for "_"s
+    word_with_guesses = ""
+    print(f"This is your word {blank}") # Displays the word to the User
+    while chances > 0:
+        user_guess = input("Choose a letter you think might be in the word: ").lower()
+        # Nested statment to check if input is valid
+        if user_guess.isalpha():
+            user_guesses.append(user_guess)
+            if user_guess in word:
+                print("That's in!")
+                for letter in word:
+                    word_with_guesses += letter
+                    print(f"This is your word {blank}")
+                                    
+        
+        # Guess is a letter but wrong  
+            else:
+                print("That letter isn't in")
+                user_guesses.append(user_guess)
+                chances -= 1
+                print(f"This is your word {blank}")
+                print(f"You have {chances} guesses left")
+        # Guess is not a letter
+        else:
+            print("Not a letter, please choose a letter")
+            word_with_guesses = check_guess2(word, user_guesses)       
+            print(word_with_guesses)
 
-# ## ### check_guess2(word, user_guesses) # Swaps "_" for letter in word if it's in
+
+
+def check_guess2(game_word, user_guesses):
+    word_with_blanks = ""
+    for letter in game_word:
+        if letter in user_guesses:
+            word_with_blanks += letter
+        else:
+            word_with_blanks += "_"
+    print(word_with_blanks)
+    print(f"You've guessed these letters: {user_guesses}")
+
+#check_guess2(word, user_guesses) # Swaps "_" for letter in word if it's in
 
 
 

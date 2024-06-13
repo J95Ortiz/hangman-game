@@ -57,28 +57,6 @@ def word_choice(level):
 
 game_word = "colder"
 
-# ## ### # Fn to check if User's guess is 
-# ## ### def check_guess(game_word):
-# ## ###     wrong_guesses = 0
-# ## ###     # Gets User's input
-# ## ###     user_guess = input("Choose a letter you think might be in the word: ").lower()
-# ## ###     # Nested statment to check if input is valid
-# ## ###     if user_guess.isalpha():
-# ## ###         if user_guess in game_word:
-# ## ###             print("That's in!")
-# ## ###             user_guesses.append(user_guess)
-# ## ###         # Guess is a letter but wrong
-# ## ###         else:
-# ## ###             print("That letter isn't in")
-# ## ###             user_guesses.append(user_guess)
-# ## ###             wrong_guesses += 1
-# ## ###             print(f"You have {7-wrong_guesses} guesses left")
-# ## ###     # Guess is not a letter
-# ## ###     else:
-# ## ###         print("Not a letter, please choose a letter")
-# ## ###             
-        
-
 def check_guess(game_word, user_guesses):
     word_with_guesses = ""
     for letter in game_word:
@@ -91,14 +69,6 @@ def check_guess(game_word, user_guesses):
     return word_with_guesses
 
 #check_guess2(word, user_guesses) # Swaps "_" for letter in word if it's in    
-
-### IF WRONG GUESS, ADD TO HANGMAN
-### WHILE CHANCES > 0 AND LETTERS IN WORD, RUN GAME
-### DRAW HANGMAN, IF CHANCES = 7 FULL, IF CHANCES = 6 ADD HEAD, ETC
-
-
-
-
 
 
 ###FUNCTIONS:
@@ -163,12 +133,34 @@ def game_start():
         
         word_with_guesses = check_guess(word, user_guesses)
         print(f"Have another go: \n{word_with_guesses}")
-        print(f"You have {chances} guesses left")        
+        print(f"You've guessed these letters so far: {user_guesses}")
+        print(f"You have {chances} guesses left\n")
+    
+    # User's ran out of chances and not guessed the word
+    if word != word_with_guesses:
+        print("Sorry, you lost! *☹")
+    
+    # User got the word and had chances left
+    else:
+        print("Congrats you won!")
+
     
 
 
 game_start()
 
+### WHILE CHANCES > 0, RUN GAME
+### WHILE LETTERS IN WORD, RUN GAME
+### IF WRONG GUESS, ADD TO HANGMAN
+### DRAW HANGMAN, IF CHANCES = 7 FULL, IF CHANCES = 6 ADD HEAD, ETC
+
+## ENDGAME WIN ##
+
+
+## ENDGAME LOSE ##
+#if "_" in word_with_guesses:
+#    print("Sorry, you lost! *☹")
+    
 
 
 ### word_with_guesses = ""

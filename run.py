@@ -15,11 +15,11 @@ medium = open("medium.txt", "r")
 # Fn asking for User's name, will add code to set up game
 def introduction():
     print("Hello!")
-    name = input("What's your name? \n")
+    name = input("What's your name?\n")
     game_request = input(f'Welcome to the Hangman Game {name}! \nDid you want to have a game?\n')
-    if game_request.lower() == "yes":
+    if "yes" in game_request.lower():
          # Code requesting User chooses how hard the game should be
-         print("There are three difficulty levels you can choose from (Easy, Medium and Hard), or you can have a mix of them all. \n")
+         print("There are three difficulty levels you can choose from (Easy, Medium and Hard), or you can have a mix of them all.")
          level_choice = input("Please choose a level now (Easy, Medium, Hard or Mix):\n").lower()
          return level_choice
     else:
@@ -32,9 +32,9 @@ def introduction():
 
 # Fn takes level's value from prev. fn & uses it to open the relevant text file, then chooses a random word to use.
 def word_choice(level):
-    if level == "easy":
+    if "easy" in level:
         word_selector = easy.read().split("\n")
-    elif level == "medium":
+    elif "medium" in level:
         word_selector = medium.read().split("\n")
     # Assigns the word chosen by random.choice to the variable "word"
     # "word" is the word the User will try and guess
@@ -139,7 +139,7 @@ def game_start():
     intro = introduction() # Asks User for name and level they want to play
     word = word_choice(intro) # Uses User's level request to access relevant file and choose a word for them to guess
     blank = "_" * len(word) # Swaps the letters for "_"s
-    print(f"This is your word {blank}") # Displays the word to the User
+    print(f"This is your word: {blank}") # Displays the word to the User
     while chances > 0:
         user_guess = input("Choose a letter you think might be in the word: ").lower()
         # Nested statment to check if input is valid
@@ -152,18 +152,18 @@ def game_start():
             else:
                 print("That letter isn't in")
                 chances -= 1
-                print(f"You have {chances} guesses left")
-                print(f"This is your word {blank}")       
+                #print(f"This is your word {blank}")       
         
         # Guess is not a letter
         else:
             print("Not a letter, please choose a letter")
-            print(f"This is your word {blank}")
+            #print(f"This is your word {blank}")
             #word_with_guesses = check_guess2(word, user_guesses)       
             #print(word_with_guesses)
         
         word_with_guesses = check_guess(word, user_guesses)
-        print(f"This is your word {word_with_guesses}")        
+        print(f"Have another go: \n{word_with_guesses}")
+        print(f"You have {chances} guesses left")        
     
 
 

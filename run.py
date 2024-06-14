@@ -34,14 +34,13 @@ def word_choice(level):
         word_selector = hard.read().split("\n")
     elif "mix" in level:
         word_selector = mix.read().split("\n")
-    # Assigns the word chosen by random.choice to the variable "word"
+    # Assigns the word chosen by random.choice to the variable "game_word"
     # "word" is the word the User will try and guess
     game_word = random.choice(word_selector)
     return game_word
-    #print(word)
 
 
-# Fn to go through letters in game_word and replace each with "_"        
+# Fn to go through letters and check if swaps the underscores for letters the user has guessed
 def check_guess(game_word, user_guesses):
     word_with_guesses = ""
     for letter in game_word:

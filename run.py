@@ -131,21 +131,28 @@ def game_start():
             #word_with_guesses = check_guess2(word, user_guesses)       
             #print(word_with_guesses)
         
+        # Runs through the word, swaps the underscores for letters the user has guessed
         word_with_guesses = check_guess(word, user_guesses)
+
+        # Prompts User for another guess 
         print(f"Have another go: \n{word_with_guesses}")
+
+        # Displays letters User has guessed so far to them
         print(f"You've guessed these letters so far: {user_guesses}")
+
+        # Tells User how many wrong guesses they have left
         print(f"You have {chances} guesses left\n")
-    
+
+        # User got the word with chances left
+        if "_" not in word_with_guesses:
+            print("Congrats you won!")
+            break
+
     # User's ran out of chances and not guessed the word
-    if word != word_with_guesses:
-        print("Sorry, you lost! *☹")
+    if chances == 0:
+        print("Sorry, you lost! ☹")
+        print(f"Your word was {word}")
     
-    # User got the word and had chances left
-    else:
-        print("Congrats you won!")
-
-    
-
 
 game_start()
 
@@ -170,3 +177,4 @@ game_start()
 ###     while "_" in word_with_guesses:
 ###         check_guess(game_word)
 ###         check_guess2(game_word, user_guesses)
+

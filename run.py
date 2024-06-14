@@ -68,7 +68,109 @@ def check_guess(game_word, user_guesses):
     #print(f"You've guessed these letters: {user_guesses}")
     return word_with_guesses
 
-#check_guess2(word, user_guesses) # Swaps "_" for letter in word if it's in    
+def hanged_man(chances):
+    hanged_man = [
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+/ | \ |
+  |   |
+ ---  |
+/   \ |
+|   | |
+      |
+-------
+""",
+        
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+/ | \ |
+  |   |
+ ---  |
+/     |
+|     |
+      |
+-------
+""",
+
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+/ | \ |
+  |   |
+      |
+      |
+      |
+      |
+-------
+""",
+        
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+/ |   |
+  |   |
+      |
+      |
+      |
+      |
+-------
+""",
+
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+  |   |
+  |   |
+      |
+      |
+      |
+      |
+-------
+""",
+
+        r"""
+  -----
+  |   |
+  O   |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+-------
+""",
+
+        r"""
+  -----
+  |   |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+-------
+""",
+    ]
+
+    print(hanged_man[chances])
+
 
 
 ###FUNCTIONS:
@@ -81,28 +183,9 @@ def check_guess(game_word, user_guesses):
 ###medium = open("medium.txt", "r")
 
 
-user_guesses = []
-chances = 7
-
-def main():
-    
-    ###intro = introduction() # Asks User for name and level they want to play
-    ###word = word_choice(intro) # Uses User's level request to access relevant file and choose a word for them to guess
-    word = "colder"
-    blank = "_" * len(word) # Swaps the letters for "_"s
-    print(f"This is your word {blank}") # Displays the word to the User
-    ##guess = check_guess(word) # Asks User for a guess, tells them if it's in and adds their guess to "user_guesses" list
-    ##check_guess2(word, user_guesses) # Swaps "_" for letter in word if it's in
-    ##word_with_guesses = check_guess2(word, user_guesses)       
-    #print(word_with_guesses)
-    #print(word)
-    #print(chances)
-    #print(check_guess2(word, user_guesses))
 
 
 # Fn to start game
-# main()
-
 def game_start():
     user_guesses = []
     chances = 7
@@ -117,12 +200,12 @@ def game_start():
             user_guesses.append(user_guess)
             if user_guess in word:
                 print("That's in!")            
-                #print(f"This is your word {word_with_guesses}")                    
+                                   
             # Guess is a letter but wrong  
             else:
                 print("That letter isn't in")
                 chances -= 1
-                #print(f"This is your word {blank}")       
+                hanged_man(chances)      
         
         # Guess is not a letter
         else:
@@ -156,25 +239,7 @@ def game_start():
 
 game_start()
 
-### WHILE CHANCES > 0, RUN GAME
-### WHILE LETTERS IN WORD, RUN GAME
+
 ### IF WRONG GUESS, ADD TO HANGMAN
 ### DRAW HANGMAN, IF CHANCES = 7 FULL, IF CHANCES = 6 ADD HEAD, ETC
-
-## ENDGAME WIN ##
-
-
-## ENDGAME LOSE ##
-#if "_" in word_with_guesses:
-#    print("Sorry, you lost! *☹")
-    
-
-
-### word_with_guesses = ""
-###     word_with_blanks = word_with_guesses
-###     print(word_with_guesses)
-###     ##return word_with_blanks
-###     while "_" in word_with_guesses:
-###         check_guess(game_word)
-###         check_guess2(game_word, user_guesses)
 

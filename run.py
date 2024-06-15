@@ -14,11 +14,11 @@ mix = open("mix.txt", "r")
 def introduction():
     print("Hello!")
     name = input("What's your name?\n")
-    game_request = input(f'Welcome to the Hangman Game {name}! \nDid you want to have a game?\n')
+    game_request = input(f'Welcome to the Hangman Game {name}! \nDid you want to have a game? (yes/no)\n')
     if "yes" in game_request.lower():
          # Code requesting User chooses how hard the game should be
-         print("There are three difficulty levels you can choose from (Easy, Medium and Hard), or you can have a mix of them all.")
-         level_choice = input("Please choose a level now (Easy, Medium, Hard or Mix):\n").lower()
+         print("There are three difficulty levels you can choose from (Easy, Medium and Hard), or you can have a completely random word.")
+         level_choice = input("Please choose a level now (Easy, Medium, Hard or Random):\n").lower()
          return level_choice.lower()
     else:
         introduction()
@@ -32,7 +32,7 @@ def word_choice(level):
         word_selector = medium.read().split("\n")
     elif "hard" in level:
         word_selector = hard.read().split("\n")
-    elif "mix" in level:
+    elif "random" in level:
         word_selector = mix.read().split("\n")
     # Assigns the word chosen by random.choice to the variable "game_word"
     # "word" is the word the User will try and guess
@@ -171,10 +171,10 @@ def hanged_man(chances):
 # Fn to start game
 def game_start():
     user_guesses = []
-    chances = 7
     intro = introduction() # Asks User for name and level they want to play
     word = word_choice(intro) # Uses User's level request to access relevant file and choose a word for them to guess
     blank = "_" * len(word) # Swaps the letters for "_"s
+    chances = 7
     print(f"This is your word: {blank}") # Displays the word to the User
     while chances > 0:
         user_guess = input("Choose a letter you think might be in the word: ").lower()

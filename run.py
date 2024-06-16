@@ -15,29 +15,53 @@ def introduction():
     print("Hello!")
     name = input("What's your name?\n")
     game_request = input(f'Welcome to the Hangman Game {name}! \nDid you want to have a game? (yes/no)\n')
+
     if "yes" in game_request.lower():
-         # Code requesting User chooses how hard the game should be
-         print("There are three difficulty levels you can choose from (Easy, Medium and Hard), or you can have a completely random word.")
-         level_choice = input("Please choose a level now (Easy, Medium, Hard or Random):\n").lower()
-    else:
+        return name
+        user_level()
+
+    elif "no" in game_request.lower():
+        print("No worries!")
+        print("****************************")
         introduction()
     
-    if "easy" or "medium" or "hard" or "random" not in level_choice:
-        print("Sorry, that's not an option, plese choose Easy, Medium, Hard or Random):\n")
-        level_choice = input("Please choose a level now (Easy, Medium, Hard or Random):\n").lower()
-    return level_choice.lower()
+    else:
+        print("Sorry I didn't understand that\n")
+        game_request = input(f'Did you want to have a game {name}? (yes/no)\n')
+
+    
+    
+#def user_level():
+   
+        
+
+
+
+    
+    
+    
+        
     
 
 
 # Fn takes level's value from prev. fn & uses it to open the relevant text file, then chooses a random word to use.
-def word_choice(level):
-    if "easy" in level:
+def word_choice():
+     # Code requesting User chooses how hard the game should be
+    print("There are three difficulty levels you can choose from (Easy, Medium and Hard), or you can have a completely random word.")
+    
+    word_selector = input("Please choose a level now (Easy, Medium, Hard or Random):\n").lower()
+
+    #if "easy" or "medium" or "hard" or "random" not in level_choice:
+       # level_choice = input(print("Sorry, that's not an option, plese choose Easy, Medium, Hard or Random):\n")).lower()
+    
+    #return level_choice.lower()
+    if "easy" in word_selector:
         word_selector = easy.read().split("\n")
-    elif "medium" in level:
+    elif "medium" in word_selector:
         word_selector = medium.read().split("\n")
-    elif "hard" in level:
+    elif "hard" in word_selector:
         word_selector = hard.read().split("\n")
-    elif "random" in level:
+    elif "random" in word_selector:
         word_selector = mix.read().split("\n")
     # Assigns the word chosen by random.choice to the variable "game_word"
     # "word" is the word the User will try and guess
@@ -164,7 +188,7 @@ def hanged_man(chances):
 def rematch():
     rematch = input("Did you want another game? (yes/no)\n")
     if "yes" in rematch:
-        introduction()
+        user_level()
     else:
         print("Thanks for playing!")
 
@@ -186,7 +210,8 @@ def rematch():
 def game_start():
     user_guesses = []
     intro = introduction() # Asks User for name and level they want to play
-    word = word_choice(intro) # Uses User's level request to access relevant file and choose a word for them to guess
+    #level = user_level()
+    word = word_choice() # Uses User's level request to access relevant file and choose a word for them to guess
     blank = "_" * len(word) # Swaps the letters for "_"s
     chances = 7
     print("****************************")

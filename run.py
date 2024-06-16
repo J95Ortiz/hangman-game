@@ -17,8 +17,8 @@ def introduction():
     game_request = input(f'Welcome to the Hangman Game {name}! \nDid you want to have a game? (yes/no)\n')
 
     if "yes" in game_request.lower():
-        return name
-        user_level()
+        game_start()
+        #pass
 
     elif "no" in game_request.lower():
         print("No worries!")
@@ -30,14 +30,7 @@ def introduction():
         game_request = input(f'Did you want to have a game {name}? (yes/no)\n')
 
     
-    
-#def user_level():
-   
-        
 
-
-
-    
     
     
         
@@ -188,7 +181,7 @@ def hanged_man(chances):
 def rematch():
     rematch = input("Did you want another game? (yes/no)\n")
     if "yes" in rematch:
-        user_level()
+        game_start()
     else:
         print("Thanks for playing!")
 
@@ -206,14 +199,13 @@ def rematch():
 
 
 
+
 # Fn to start game
 def game_start():
-    user_guesses = []
-    intro = introduction() # Asks User for name and level they want to play
-    #level = user_level()
     word = word_choice() # Uses User's level request to access relevant file and choose a word for them to guess
-    blank = "_" * len(word) # Swaps the letters for "_"s
+    user_guesses = []
     chances = 7
+    blank = "_" * len(word) # Swaps the letters for "_"s
     print("****************************")
     print(f"Your word has {len(blank)} letters")
     print(f"This is your word: {blank}\n") # Displays the word to the User
@@ -277,8 +269,10 @@ def game_start():
         print(f"Your word was {word}")
         rematch()
 
+
     
 
+introduction() # Asks User for name and level they want to play
 game_start()
 
 

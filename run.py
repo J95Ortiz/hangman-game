@@ -30,33 +30,29 @@ def introduction():
         print("Sorry I didn't understand that, please only answer yes or no\n")
         game_request = input(f'Did you want to have a game {name}?\n')
 
-    
 
     
-    
-        
-    
-
-
 # Fn takes level's value from prev. fn & uses it to open the relevant text file, then chooses a random word to use.
 def word_choice():
      # Code requesting User chooses how hard the game should be
-    print("There are three difficulty levels you can choose from (Easy, Medium and Hard), or you can have a completely random word.")
+    print("There are three difficulty levels you can choose from (Easy, Medium and Hard), or you can have a completely random word (random).")
     
-    word_selector = input("Please choose a level now (Easy, Medium, Hard or Random):\n").lower()
+    word_selector = input("Please choose a level now:\n").lower()
+    return word_selector
 
-    #if "easy" or "medium" or "hard" or "random" not in level_choice:
-       # level_choice = input(print("Sorry, that's not an option, plese choose Easy, Medium, Hard or Random):\n")).lower()
-    
-    #return level_choice.lower()
-    if "easy" in word_selector:
-        word_selector = easy.read().split("\n")
-    elif "medium" in word_selector:
-        word_selector = medium.read().split("\n")
-    elif "hard" in word_selector:
-        word_selector = hard.read().split("\n")
-    elif "random" in word_selector:
-        word_selector = mix.read().split("\n")
+    def word_picker(word_selector):
+        if "easy" in word_selector:
+            word_selector = easy.read().split("\n")
+        elif "medium" in word_selector:
+            word_selector = medium.read().split("\n")
+        elif "hard" in word_selector:
+            word_selector = hard.read().split("\n")
+        elif "random" in word_selector:
+            word_selector = mix.read().split("\n")
+        else:
+            print("Sorry I didn't understand that, please choose a level.")
+            word_choice()
+
     # Assigns the word chosen by random.choice to the variable "game_word"
     # "word" is the word the User will try and guess
     game_word = random.choice(word_selector)
@@ -211,6 +207,7 @@ def game_start():
     print("****************************")
     print(f"Your word has {len(blank)} letters")
     print(f"This is your word: {blank}\n") # Displays the word to the User
+    print(word)
     print("****************************")
     while chances > 0:
         user_guess = input("Choose a letter you think might be in the word: ").lower()

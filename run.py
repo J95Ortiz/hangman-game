@@ -14,7 +14,8 @@ mix = open("mix.txt", "r")
 def introduction():
     print("Hello!")
     name = input("What's your name?\n")
-    game_request = input(f'Welcome to the Hangman Game {name}! \nDid you want to have a game? (yes/no)\n')
+    print(f"Welcome to the Hangman Game {name}! \nPlease only answer yes or no unless you're prompted for a different answer")
+    game_request = input(f'Did you want to have a game {name}?\n')
 
     if "yes" in game_request.lower():
         game_start()
@@ -26,8 +27,8 @@ def introduction():
         introduction()
     
     else:
-        print("Sorry I didn't understand that\n")
-        game_request = input(f'Did you want to have a game {name}? (yes/no)\n')
+        print("Sorry I didn't understand that, please only answer yes or no\n")
+        game_request = input(f'Did you want to have a game {name}?\n')
 
     
 
@@ -184,6 +185,7 @@ def rematch():
         game_start()
     else:
         print("Thanks for playing!")
+        
 
 
 

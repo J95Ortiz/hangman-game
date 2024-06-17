@@ -38,19 +38,31 @@ def introduction():
 # Fn takes level's value from prev. fn & uses it to open the relevant text file, then chooses a random word to use.
 def word_choice():
      # Code requesting User chooses how hard the game should be
-    print("There are three difficulty levels you can choose from, or you can have a completely random word. \nPlease type Easy, Medium, Hard or Random to choose. \n")
+    print("There are three difficulty levels you can choose from, or you can have a completely random word. \nPlease type 1 for Easy, 2 for Medium, 3 for Hard or 4 for a Random word. \n")
     
-    user_input = input("Please choose a level now:\n")
+    while True:
+        try:
+            word_selector = int(input("Please choose a level now:\n")) # Attempting to use easy, random, etc.
+            # word_selector = int(input("Please choose a level now:\n"))
+        except ValueError:
+            print("Sorry I didn't understand that, please choose a level.")
+            continue
+        else:
+            break
 
-    word_selector = user_input.lower()
+    ### while True:
+    ###     if word_selector.lower() not in ("easy", "medium", "hard", "random"):
+    ###         print("Sorry that's not a valid option")
+    ###     else:
+    ###         break
     
-    if word_selector == "easy":
+    if word_selector == 1:
         word_selector = easy.read().split("\n")
-    elif word_selector == "medium":
+    elif word_selector == 2:
         word_selector = medium.read().split("\n")
-    elif word_selector == "hard":
+    elif word_selector == 3:
         word_selector = hard.read().split("\n")
-    elif word_selector == "random":
+    elif word_selector == 4:
         word_selector = mix.read().split("\n")
     else:
         print("Sorry I didn't understand that, please choose a level.")

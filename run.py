@@ -14,7 +14,7 @@ mix = open("mix.txt", "r")
 def introduction():
     print("Hello!")
     name = input("What's your name?\n")
-    print(f"Welcome to the Hangman Game {name}! \nPlease only answer yes or no unless you're prompted for a different answer")
+    print(f"\nWelcome to the Hangman Game {name}! \nPlease only answer yes or no unless you're prompted for a different answer")
     # game_request = input(f'Did you want to have a game {name}?\n')
     #while "yes" or "no" not in game_request.lower():
     #    print(game_request)
@@ -40,19 +40,21 @@ def word_choice():
      # Code requesting User chooses how hard the game should be
     print("There are three difficulty levels you can choose from, or you can have a completely random word. \nPlease type Easy, Medium, Hard or Random to choose. \n")
     
-    word_selector = input("Please choose a level now:\n").lower()
+    user_input = input("Please choose a level now:\n")
+
+    word_selector = user_input.lower()
     
-    if "easy" in word_selector:
+    if word_selector == "easy":
         word_selector = easy.read().split("\n")
-    elif "medium" in word_selector:
+    elif word_selector == "medium":
         word_selector = medium.read().split("\n")
-    elif "hard" in word_selector:
+    elif word_selector == "hard":
         word_selector = hard.read().split("\n")
-    elif "random" in word_selector:
+    elif word_selector == "random":
         word_selector = mix.read().split("\n")
     else:
         print("Sorry I didn't understand that, please choose a level.")
-        word_choice()
+        
 
     # Assigns the word chosen by random.choice to the variable "game_word"
     # "word" is the word the User will try and guess
@@ -180,9 +182,10 @@ def rematch():
     rematch = input("Did you want another game?\n")
     if "yes" in rematch:
         print("****************************")
-        game_start()
+        return True
     else:
         print("Thanks for playing!")
+        return False
         
 
 
@@ -202,71 +205,79 @@ def rematch():
 
 # Fn to start game
 def game_start():
-    word = word_choice() # Uses User's level request to access relevant file and choose a word for them to guess
-    user_guesses = []
-    chances = 7
-    blank = "_" * len(word) # Swaps the letters for "_"s
-    print("****************************")
-    print(f"Your word has {len(blank)} letters")
-    print(f"This is your word: {blank}\n") # Displays the word to the User
-    print("****************************")
-    while chances > 0:
-        user_guess = input("Choose a letter you think might be in the word: ").lower()
-
-        # Checks if User's inputted more than one letter
-        if len(user_guess) != 1:
-            print("You can only enter one letter at a time!")
-        else:
-
-        # Nested statment to check if input is valid
-            if user_guess.isalpha():
-                # Checks if User's guess has already been tried
-                if user_guess in user_guesses:
-                    print("You've already tried that letter")
-                    print("****************************")
-    
-                else:
-                    user_guesses.append(user_guess)
-                    
-                    if user_guess in word:
-                        print("That's in!")
-    
-                    # Guess is a letter but wrong  
-                    else:
-                        print("That letter isn't in")
-                        chances -= 1
-                        hanged_man(chances)      
-            
-            # Guess is not a letter
-            else:
-                print(f"{user_guess} is not a letter, please choose a letter")
-                print("****************************")
-            
-        # Runs through the word, swaps the underscores for letters the user has guessed
-        word_with_guesses = check_guess(word, user_guesses)
-
-        # Prompts User for another guess 
-        if chances != 0:
-            print(f"Have another go: \n{word_with_guesses}\n")
-
-        # Displays letters User has guessed so far to them
-        print(f"You've guessed these letters so far: {user_guesses}")
-
-        # Tells User how many wrong guesses they have left
-        print(f"You have {chances} guesses left\n")
+    while True:
+        word = word_choice() # Uses User's level request to access relevant file and choose a word for them to guess
+        user_guesses = []
+        chances = 7
+        blank = "_" * len(word) # Swaps the letters for "_"s
         print("****************************")
+        print(f"Your word has {len(blank)} letters")
+        print(f"This is your word: {blank}\n") # Displays the word to the User
+        print("****************************")
+        while chances > 0:
+            user_guess = input("Choose a letter you think might be in the word: ").lower()
+            print("****************************")
 
-        # User got the word with chances left
-        if "_" not in word_with_guesses:
-            print("Congrats you won!")
+            # Checks if User's inputted more than one letter
+            if len(user_guess) != 1:
+                print("You can only enter one letter at a time!")
+                print("****************************")
+            else:
+
+            # Nested statment to check if input is valid
+                if user_guess.isalpha():
+                    # Checks if User's guess has already been tried
+                    if user_guess in user_guesses:
+                        print("You've already tried that letter")
+                        print("****************************")
+        
+                    else:
+                        user_guesses.append(user_guess)
+                        
+                        if user_guess in word:
+                            print("That's in!")
+                            print("****************************")
+        
+                        # Guess is a letter but wrong  
+                        else:
+                            print("That letter isn't in")
+                            chances -= 1
+                            hanged_man(chances)
+                            print("****************************")      
+                
+                # Guess is not a letter
+                else:
+                    print(f"{user_guess} is not a letter, please choose a letter")
+                    print("****************************")
+                
+            # Runs through the word, swaps the underscores for letters the user has guessed
+            word_with_guesses = check_guess(word, user_guesses)
+
+            # Prompts User for another guess 
+            if chances != 0:
+                print(f"Have another go: \n{word_with_guesses}\n")
+                print("****************************")
+
+            # Displays letters User has guessed so far to them
+            print(f"You've guessed these letters so far: {user_guesses}")
+            print("****************************")
+
+            # Tells User how many wrong guesses they have left
+            print(f"You have {chances} guesses left\n")
+            print("****************************")
+
+            # User got the word with chances left
+            if "_" not in word_with_guesses:
+                print("Congrats you won!")
+                print("****************************")
+                rematch()
+                break
+
+        # User's ran out of chances and not guessed the word
+        if chances == 0:
+            print("Sorry, you lost! ☹")
+            print(f"Your word was {word}")
             rematch()
-            break
-
-    # User's ran out of chances and not guessed the word
-    if chances == 0:
-        print("Sorry, you lost! ☹")
-        print(f"Your word was {word}")
-        rematch()
 
 
     

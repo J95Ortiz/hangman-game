@@ -15,22 +15,22 @@ def introduction():
     print("Hello!")
     name = input("What's your name?\n")
     print(f"Welcome to the Hangman Game {name}! \nPlease only answer yes or no unless you're prompted for a different answer")
-    game_request = input(f'Did you want to have a game {name}?\n')
-    while "yes" or "no" not in game_request.lower():
-        print("Sorry I didn't understand that, please only answer yes or no\n")
-        game_request = input(f'Did you want to have a game {name}?\n')
-
-        if "yes" in game_request.lower():
-            game_start()
-        #pass
-
-        elif "no" in game_request.lower():
-            print("No worries!")
-            print("****************************")
-            introduction()
+    # game_request = input(f'Did you want to have a game {name}?\n')
+    #while "yes" or "no" not in game_request.lower():
+    #    print(game_request)
+    #    print("Sorry I didn't understand that, please only answer yes or no\n")
+    #    game_request = input(f'Did you want to have a game {name}?\n')
+    #    
+#
+    #    if "yes" in game_request.lower():
+    #        game_start()
+    #    #pass
+#
+    #    elif "no" in game_request.lower():
+    #        print("No worries!")
+    #        print("****************************")
+    #        introduction()
     
-    #else:
-        
         
 
 
@@ -38,7 +38,7 @@ def introduction():
 # Fn takes level's value from prev. fn & uses it to open the relevant text file, then chooses a random word to use.
 def word_choice():
      # Code requesting User chooses how hard the game should be
-    print("There are three difficulty levels you can choose from. Please type Easy, Medium or Hard to choose. \nOr if you wanted a completely random word please type random when prompted.")
+    print("There are three difficulty levels you can choose from, or you can have a completely random word. \nPlease type Easy, Medium, Hard or Random to choose. \n")
     
     word_selector = input("Please choose a level now:\n").lower()
     
@@ -179,6 +179,7 @@ def hanged_man(chances):
 def rematch():
     rematch = input("Did you want another game?\n")
     if "yes" in rematch:
+        print("****************************")
         game_start()
     else:
         print("Thanks for playing!")
@@ -208,7 +209,6 @@ def game_start():
     print("****************************")
     print(f"Your word has {len(blank)} letters")
     print(f"This is your word: {blank}\n") # Displays the word to the User
-    print(word)
     print("****************************")
     while chances > 0:
         user_guess = input("Choose a letter you think might be in the word: ").lower()
@@ -223,6 +223,7 @@ def game_start():
                 # Checks if User's guess has already been tried
                 if user_guess in user_guesses:
                     print("You've already tried that letter")
+                    print("****************************")
     
                 else:
                     user_guesses.append(user_guess)
@@ -238,7 +239,8 @@ def game_start():
             
             # Guess is not a letter
             else:
-                print("Not a letter, please choose a letter")
+                print(f"{user_guess} is not a letter, please choose a letter")
+                print("****************************")
                 #print(f"This is your word {blank}")
                 #word_with_guesses = check_guess2(word, user_guesses)       
                 #print(word_with_guesses)

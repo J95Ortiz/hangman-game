@@ -241,9 +241,6 @@ def game_start():
             else:
                 print(f"{user_guess} is not a letter, please choose a letter")
                 print("****************************")
-                #print(f"This is your word {blank}")
-                #word_with_guesses = check_guess2(word, user_guesses)       
-                #print(word_with_guesses)
             
         # Runs through the word, swaps the underscores for letters the user has guessed
         word_with_guesses = check_guess(word, user_guesses)

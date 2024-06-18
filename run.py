@@ -9,23 +9,20 @@ import random
 def introduction():
     print("Hello!")
     name = input("What's your name?\n")
-    print(f"Welcome to the Hangman Game {name}! \nPlease only answer yes or no unless you're prompted for a different answer")
-    # game_request = input(f'Did you want to have a game {name}?\n')
-    #while "yes" or "no" not in game_request.lower():
-    #    print(game_request)
-    #    print("Sorry I didn't understand that, please only answer yes or no\n")
-    #    game_request = input(f'Did you want to have a game {name}?\n')
-    #    
-#
-    #    if "yes" in game_request.lower():
-    #        game_start()
-    #    #pass
-#
-    #    elif "no" in game_request.lower():
-    #        print("No worries!")
-    #        print("****************************")
-    #        introduction()
-    
+    print(f"Welcome to the Hangman Game {name}!")
+    print(
+        """          
+Please only answer yes or no unless you're prompted for a different answer.
+          
+Your goal is to guess a word by guessing a letter you think might be in the word.
+          
+There are three difficulty levels you can choose from, or you can have a completely random word.
+               
+If your guess is correct I'll pop it wherever it appears in the word, but if it's wrong you'll lose a life and the stickman won't be happy!
+            
+Whatever level you choose you'll always get 7 chances so don't worry if you don't get it as you'll have the chance for a rematch once the game has finished.
+                    """)
+       
         
 
 
@@ -33,8 +30,7 @@ def introduction():
 # Fn takes level's value from prev. fn & uses it to open the relevant text file, then chooses a random word to use.
 def word_choice():
      # Code requesting User chooses how hard the game should be
-    print("There are three difficulty levels you can choose from or you can have a completely random word.")
-    print("\nPlease type:\n1 - For an Easy word \n2 - For an Average word \n3 - For a Hard word \n4 - For a Random word \n")
+    print("\nPlease type:\n1 - For an Easy word \n2 - For an Average word \n3 - For a Hard word \n4 - For a Random word")
     
     while True:
         try:
@@ -281,7 +277,7 @@ def game_start(word):
      # Displays letters User has guessed so far to them
         print(f"You've guessed these letters so far: {user_guesses}")
      # Tells User how many wrong guesses they have left
-        print(f"You have {chances} guesses left\n")
+        print(f"You have {chances} lives left\n")
         print("****************************")
      # User got the word with chances left
         if "_" not in word_with_guesses:

@@ -209,14 +209,6 @@ def hanged_man(chances):
 #        elif rematch.lower() == "yes":
 #            return True
 
-def rematch():
-    while True:
-        game_start()
-        rematch = input("Did you want another game?\n")
-        if rematch.lower() == "no":
-            break
-        elif rematch.lower() == "yes":
-            continue
 
 
 ###FUNCTIONS:
@@ -235,91 +227,8 @@ def replay():
 
 
 # Fn to start game
-#def game_start():
-#    
-#    word = word_choice() # Uses User's level request to access relevant file and choose a word for them to guess
-#    user_guesses = []
-#    chances = 7
-#    blank = "_" * len(word) # Swaps the letters for "_"s
-#    print("****************************")
-#    print(f"Your word has {len(blank)} letters")
-#    print(f"This is your word: {blank}\n") # Displays the word to the User
-#
-#    
-#    while chances > 0:
-#        user_guess = input("Choose a letter you think might be in the word: ").lower()
-#        print("****************************")
-#     # Checks if User's inputted more than one letter
-#        if len(user_guess) != 1:
-#            print("You can only enter one letter at a time!")
-#            print("****************************")
-#        else:
-#     # Nested statment to check if input is valid
-#            if user_guess.isalpha():
-#                # Checks if User's guess has already been tried
-#                if user_guess in user_guesses:
-#                    print("You've already tried that letter")
-#    
-#                else:
-#                    user_guesses.append(user_guess)
-#                    
-#                    if user_guess in word:
-#                        print("That's in!")
-#                        print("****************************")
-#    
-#                    # Guess is a letter but wrong  
-#                    else:
-#                        print("That letter isn't in")
-#                        chances -= 1
-#                        hanged_man(chances)
-#                        print("****************************")      
-#            
-#            # Guess is not a letter
-#            else:
-#                print(f"{user_guess} is not a letter, please choose a letter")
-#                print("****************************")
-#            
-#        # Runs through the word, swaps the underscores for letters the user has guessed
-#        word_with_guesses = check_guess(word, user_guesses)
-#     # Prompts User for another guess 
-#        if chances != 0:
-#            print(f"Have another go: \n{word_with_guesses}\n")
-#     # Displays letters User has guessed so far to them
-#        print(f"You've guessed these letters so far: {user_guesses}")
-#     # Tells User how many wrong guesses they have left
-#        print(f"You have {chances} guesses left\n")
-#        print("****************************")
-#     # User got the word with chances left
-#        if "_" not in word_with_guesses:
-#            print("Congrats you won!")
-#            print("****************************")
-#            #rematch()
-#            #return
-#            #replay()
-#            
-# # User's ran out of chances and not guessed the word
-#    if chances == 0:
-#        print("Sorry, you lost! ☹")
-#        print(f"Your word was {word}")
-#        #rematch()
-#        #return
-#        #break
-#        #replay()
-        
-#    rematch = input("Did you want another game?\n")
-#    if rematch.lower() == "no":
-#        return False
-#    elif rematch.lower() == "yes":
-#        return True
-
-
-
- # Uses User's level request to access relevant file and choose a word for them to guess
-game_on = True
-introduction() # Asks User for name and level they want to play
-
-while game_on == True:
-    word = word_choice() # Uses User's level request to access relevant file and choose a word for them to guess
+def game_start(word):    
+    
     user_guesses = []
     chances = 7
     blank = "_" * len(word) # Swaps the letters for "_"s
@@ -375,26 +284,35 @@ while game_on == True:
         if "_" not in word_with_guesses:
             print("Congrats you won!")
             print("****************************")
-            rematch = input("Did you want another game?\n").lower()
-            if rematch == "no":
-                game_on = False
-                print("Thanks for playing!")
-            elif rematch == "yes":
-                word = word_choice()
-
             #rematch()
-            #return
+            break
             #replay()
             
  # User's ran out of chances and not guessed the word
     if chances == 0:
         print("Sorry, you lost! ☹")
         print(f"Your word was {word}")
-        rematch = input("Did you want another game?\n").lower()
-        if rematch == "no":
-            game_on = False
-            print("Thanks for playing!")
+        #rematch()
+        #return
+        #break
+        #replay()
+       
+    rematch = input("Did you want another game?\n")
+    if rematch.lower() == "yes":
+        word = word_choice()
+        game_start(word)
+        #return True
     
+        
+    else:
+        print("Thanks for playing!")
+        #return False
+        
+    
+
+
+
+
 
 
 #while True:
@@ -404,10 +322,9 @@ while game_on == True:
 #        break
 #print("Thanks for playing!")
 
-       
-
-
-#game_start()
+introduction()       
+word = word_choice() # Uses User's level request to access relevant file and choose a word for them to guess
+game_start(word)
 
 
 ### IF WRONG GUESS, ADD TO HANGMAN

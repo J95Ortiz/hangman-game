@@ -3,11 +3,6 @@
 # Importing random so the computer chooses a random word to use in the game
 import random
 
-# Setting up the names for word files
-easy = open("easy.txt", "r")
-medium = open("medium.txt", "r")
-hard = open("hard.txt", "r")
-mix = open("mix.txt", "r")
 
 
 # Fn asking for User's name, will add code to set up game
@@ -44,32 +39,40 @@ def word_choice():
     while True:
         try:
             word_selector = int(input("Please choose a level now:\n")) # Attempting to use easy, random, etc.
+             
             # word_selector = int(input("Please choose a level now:\n"))
+            if word_selector not in (1,2, 3, 4):
+                print("Please choose an option between 1 & 4")
+                continue
+
         except ValueError or TypeError:
             print("Sorry that isn't a number, please choose a level.")
-            continue
-
-        if word_selector not in (1,2, 3, 4):
-            print("Please choose an option between 1 & 4")
             continue
 
         else:
             break
 
+        
 
     if word_selector == 1:
+        # Setting up the names for word files
+        easy = open("easy.txt", "r")
         word_selector = easy.read().split("\n")
     elif word_selector == 2:
+        medium = open("medium.txt", "r")
         word_selector = medium.read().split("\n")
     elif word_selector == 3:
+        hard = open("hard.txt", "r")
         word_selector = hard.read().split("\n")
     elif word_selector == 4:
+        mix = open("mix.txt", "r")
         word_selector = mix.read().split("\n")
-   
+      
 
     # Assigns the word chosen by random.choice to the variable "game_word"
     # "word" is the word the User will try and guess
     game_word = random.choice(word_selector)
+    #print(game_word)
     return game_word
 
 
@@ -299,14 +302,13 @@ def game_start(word):
        
     rematch = input("Did you want another game?\n")
     if rematch.lower() == "yes":
-        word = word_choice()
-        game_start(word)
-        #return True
+        new_word = word_choice()
+        game_start(new_word)
     
         
     else:
         print("Thanks for playing!")
-        #return False
+        
         
     
 

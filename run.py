@@ -189,15 +189,27 @@ def hanged_man(chances):
     print(hanged_man[chances])
 
 
-def rematch():
-    rematch = input("Did you want another game?\n")
-    if "yes" in rematch:
-        print("****************************")
-        return True
-    else:
-        print("Thanks for playing!")
-        return False
+#def rematch():
+#    while True:
+#        rematch = input("Did you want another game?\n")
+#        game_start()
+#        if "yes" in rematch:
+#            print("****************************")
+#            return True
+#        else:
+#            print("Thanks for playing!")
+#            return False
         
+
+def rematch():
+    while True:
+        rematch = input("Did you want another game?\n")
+        if rematch == "yes":
+            game_start()
+        else:
+            print("Thanks for playing!")
+            rematch = False
+            break
 
 
 
@@ -224,7 +236,7 @@ def game_start():
         print("****************************")
         print(f"Your word has {len(blank)} letters")
         print(f"This is your word: {blank}\n") # Displays the word to the User
-        print("****************************")
+        
         while chances > 0:
             user_guess = input("Choose a letter you think might be in the word: ").lower()
             print("****************************")
@@ -240,7 +252,6 @@ def game_start():
                     # Checks if User's guess has already been tried
                     if user_guess in user_guesses:
                         print("You've already tried that letter")
-                        print("****************************")
         
                     else:
                         user_guesses.append(user_guess)
@@ -267,11 +278,9 @@ def game_start():
             # Prompts User for another guess 
             if chances != 0:
                 print(f"Have another go: \n{word_with_guesses}\n")
-                print("****************************")
 
             # Displays letters User has guessed so far to them
             print(f"You've guessed these letters so far: {user_guesses}")
-            print("****************************")
 
             # Tells User how many wrong guesses they have left
             print(f"You have {chances} guesses left\n")

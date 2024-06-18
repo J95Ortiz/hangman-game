@@ -14,7 +14,7 @@ mix = open("mix.txt", "r")
 def introduction():
     print("Hello!")
     name = input("What's your name?\n")
-    print(f"\nWelcome to the Hangman Game {name}! \nPlease only answer yes or no unless you're prompted for a different answer")
+    print(f"Welcome to the Hangman Game {name}! \nPlease only answer yes or no unless you're prompted for a different answer")
     # game_request = input(f'Did you want to have a game {name}?\n')
     #while "yes" or "no" not in game_request.lower():
     #    print(game_request)
@@ -38,24 +38,25 @@ def introduction():
 # Fn takes level's value from prev. fn & uses it to open the relevant text file, then chooses a random word to use.
 def word_choice():
      # Code requesting User chooses how hard the game should be
-    print("There are three difficulty levels you can choose from, or you can have a completely random word. \nPlease type 1 for Easy, 2 for Medium, 3 for Hard or 4 for a Random word. \n")
+    print("There are three difficulty levels you can choose from or you can have a completely random word.")
+    print("\nPlease type:\n1 - For an Easy word \n2 - For an Average word \n3 - For a Hard word \n4 - For a Random word \n")
     
     while True:
         try:
             word_selector = int(input("Please choose a level now:\n")) # Attempting to use easy, random, etc.
             # word_selector = int(input("Please choose a level now:\n"))
-        except ValueError:
-            print("Sorry I didn't understand that, please choose a level.")
+        except ValueError or TypeError:
+            print("Sorry that isn't a number, please choose a level.")
             continue
+
+        if word_selector not in (1,2, 3, 4):
+            print("Please choose an option between 1 & 4")
+            continue
+
         else:
             break
 
-    ### while True:
-    ###     if word_selector.lower() not in ("easy", "medium", "hard", "random"):
-    ###         print("Sorry that's not a valid option")
-    ###     else:
-    ###         break
-    
+
     if word_selector == 1:
         word_selector = easy.read().split("\n")
     elif word_selector == 2:
@@ -64,9 +65,7 @@ def word_choice():
         word_selector = hard.read().split("\n")
     elif word_selector == 4:
         word_selector = mix.read().split("\n")
-    else:
-        print("Sorry I didn't understand that, please choose a level.")
-        
+   
 
     # Assigns the word chosen by random.choice to the variable "game_word"
     # "word" is the word the User will try and guess

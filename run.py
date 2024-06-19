@@ -307,17 +307,35 @@ def game_start(word):
         print(f"Your word was {word}")
 
     # Checks with User if they wanted to play again   
-    rematch = input("Did you want another game?\n")
-    if rematch.lower() == "yes":
-        print("****************************")
-        # Word_choice function ran again within function so a new random word is chosen.
-        new_word = word_choice()
-        game_start(new_word)
-
-    # Goodbye message displayed if User's input is anything but "yes"
-    else:
-        print("Thanks for playing!")
-        print("****************************")
+    while True:
+        rematch_question = input("Did you want another game?\n")
+        rematch = str(rematch_question)
+        
+        # Checks User's input is either a "yes" or a "no"
+        # If neither, message displayed requesting User only enter "yes" or "no"
+        if rematch.lower() not in ("yes", "no"):
+            print("Sorry I didn't understand that, please only answer yes or no")
+            print("****************************")
+            continue
+            
+        # Goodbye message displayed if User's input is "no"
+        if rematch.lower() == "no":
+            print("Thanks for playing!")
+            print("****************************")
+            break
+        
+        # If User's input is "yes" game restarts
+        if rematch.lower() == "yes":
+            print("****************************")
+            # Word_choice function ran again within function so a new random word is chosen.
+            new_word = word_choice()
+            game_start(new_word)
+            break
+       
+        
+        
+            
+              
         
 
 # Calls the intro() function.

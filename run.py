@@ -234,7 +234,7 @@ def game_start(word):
     
     # Loop that runs while User has chances left
     while chances > 0:
-        user_guess = input("Choose a letter you think might be in the word: ").lower()
+        user_guess = input("Choose a letter you think might be in the word: \n").lower()
         print("****************************")
   
      # Checks if User's inputted more than one letter

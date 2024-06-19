@@ -23,7 +23,16 @@ import random
 # Fn asking for User's name
 def introduction():
     print("Hello!")
-    name = input("What's your name?\n")
+    
+    while True:
+        name = input("What's your name?\n")
+
+        if not name.isalnum():
+            print("Sorry please only use letters and numbers")
+            continue
+        else:
+            break
+
     print(f"Welcome to the Hangman Game {name}!")
     # Instructions printed out to the User
     print(

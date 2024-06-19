@@ -1,23 +1,23 @@
 """
 HANGMAN GAME:
 
-- Code set up so that the User is greeted by the computer and asked for their
-name.
+- Code set up so that the User is greeted by the computer and asked for
+ their name.
 
 - They are then asked to choose a difficulty level.
 
-- The computer will then choose a random wrd from the corresponding file and
- replace the letters with underscores.
+- The computer will then choose a random wrd from the corresponding file
+ and replace the letters with underscores.
 
-- A loop is then ran whereby the User is meant to guess a letter they think is
-in the word.
+- A loop is then ran whereby the User is meant to guess a letter they think
+ is in the word.
 
-- Once the word is guessed or they run out of lives the User is asked if they'd
-like a rematch.
+- Once the word is guessed or they run out of lives the User is asked if
+ they'd like a rematch.
 
-- If they do they are asked which level they want to play again and the process
-restarts, but if they say no then the computer thanks them for playing and the program ends.
-
+- If they do they are asked which level they want to play again and the
+ process restarts, but if they say no then the computer thanks them for
+ playing and the program ends.
 """
 
 # Importing random module to be used when choosing a random word to use
@@ -43,19 +43,30 @@ def introduction():
         """
 Please only answer yes or no unless you're prompted for a different answer.
 
-Your goal is to reveal the hidden word by guessing a letter you think might be in it.
+Your goal is to reveal the hidden word by guessing a letter you think might
+ be in it.
 
-There are three difficulty levels you can choose from, or you can have a completely random word.
+There are three difficulty levels you can choose from, or you can have a
+ completely random word.
 
-If your guess is correct I'll pop the letter you choose wherever it appears in the word, but if it's wrong you'll lose a life and the stickman won't be happy!
+If your guess is correct I'll pop the letter you choose wherever it appears
+ in the word, but if it's wrong you'll lose a life and the stickman won't
+ be happy!
 
-Whatever level you choose you'll always get 7 chances so don't worry if you don't get it as you'll have the chance for a rematch once the game has finished.
+Whatever level you choose you'll always get 7 chances so don't worry if you
+don't get it as you'll have the chance for a rematch once the game has
+ finished.
 
 \tGOOD LUCK!! 😁
                     """)
 
 
-# Fn that asks User what level they want & uses it to open the relevant text file, then chooses a random word to use.
+"""
+Fn that asks User what level they want & uses it to open the relevant
+ text file, then chooses a random word to use.
+ """
+
+
 def word_choice():
 
     # Code requesting User chooses how hard the game should be
@@ -78,10 +89,13 @@ Please type:
 
             if word_selector not in (1, 2, 3, 4):
                 print("Please choose an option between 1 & 4")
+                print("****************************\n")
                 continue
 
         except ValueError or TypeError:
             print("Sorry that isn't a number, please choose a level.")
+            print("****************************\n")
+
             continue
 
         else:
@@ -104,14 +118,21 @@ Please type:
         mix = open("mix.txt", "r")
         word_selector = mix.read().split("\n")
 
-    # Computer goes through txt file and assigns the word chosen by random.choice to the variable "game_word".
-    # This values is then used as the game_start() function's argument
+    """Computer goes through txt file and assigns the word chosen by
+    random.choice to the variable "game_word". This values is then used
+     as the game_start() function's argument"""
     game_word = random.choice(word_selector)
     return game_word
 
 
-# Fn used in game_start() that checks if the User's guessed letter is in game_word, and swaps any underscores for this letter if it's in. Otherwise it keeps the underscore.
-# The blank word with User's guesses is returned as "word_with_guesses".
+"""
+Fn used in game_start() that checks if User's guessed letter is in Swaps
+any underscores for their letter if it's in. Otherwise it keeps the
+ underscore. Blank word with User's guesses is returned as
+ "word_with_guesses".
+"""
+
+
 def check_guess(game_word, user_guesses):
     word_with_guesses = ""
     for letter in game_word:
@@ -122,8 +143,12 @@ def check_guess(game_word, user_guesses):
     return word_with_guesses
 
 
-# Fn that's called if User's guess isn't right and checks their chances.
-# Then it displays the apropriate stick figure depending on how many they have left.
+"""Fn that's called if User's guess isn't right and checks their chances.
+Then displays the apropriate stick figure depending on how many they
+ have left.
+"""""
+
+
 def hanged_man(chances):
     hanged_man = [
         r"""
@@ -228,7 +253,12 @@ def hanged_man(chances):
     print(hanged_man[chances])
 
 
-# Fn combining most functions and starts the game after the intro and level_choice functions.
+"""
+Fn combining most functions and starts the game after the intro and
+ level_choice functions.
+"""
+
+
 def game_start(word):
 
     user_guesses = []  # Empty list to store User's guesses
@@ -236,12 +266,16 @@ def game_start(word):
     blank = "_" * len(word)  # Swaps the letters for "_"s
 
     print("****************************")
-    print(f"Your word has {len(blank)} letters")  # Tells the User how many letters in the word.
-    print(f"This is your word: {blank}\n")  # Displays the word to the User as just underscores.
+
+    # Tells the User how many letters in the word.
+    print(f"Your word has {len(blank)} letters")
+
+    # Displays the word to the User as just underscores.
+    print(f"This is your word: {blank}\n")
 
     # Loop that runs while User has chances left
     while chances > 0:
-        user_guess = input("Choose a letter you think might be in the word: \n").lower()
+        user_guess = input("Choose a letter you think is in: \n").lower()
         print("****************************")
 
         # Checks if User's inputted more than one letter
@@ -279,7 +313,10 @@ def game_start(word):
                 print(f"{user_guess} is not a letter, please choose a letter")
                 print("****************************")
 
-        # Runs through the word, swaps the underscores for letters the user has guessed
+        """
+        Runs through the word, swaps the underscores for letters the user
+        has guessed.
+        """
         word_with_guesses = check_guess(word, user_guesses)
 
         # Prompts User for another guess
@@ -309,10 +346,13 @@ def game_start(word):
         rematch_question = input("Did you want another game?\n")
         rematch = str(rematch_question)
 
-        # Checks User's input is either a "yes" or a "no"
-        # If neither, message displayed requesting User only enter "yes" or "no"
+        """
+        Checks User's input is either a "yes" or a "no".
+        If neither, message displayed requesting User
+         only enter "yes" or no".
+        """
         if rematch.lower() not in ("yes", "no"):
-            print("Sorry I didn't understand that, please only answer yes or no")
+            print("Sorry I didn't understand that, please only type yes or no")
             print("****************************")
             continue
 
@@ -325,7 +365,11 @@ def game_start(word):
         # If User's input is "yes" game restarts
         if rematch.lower() == "yes":
             print("****************************")
-            # Word_choice function ran again within function so a new random word is chosen.
+
+            """
+            Word_choice function ran again within function so a new random
+            word is chosen.
+            """
             new_word = word_choice()
             game_start(new_word)
             break
@@ -337,5 +381,9 @@ introduction()
 # Runs word_choice function to set up first game.
 word = word_choice()
 
-# Sets up first game for the User and runs in a loop until User doesn't say "yes" when asked if they want to play again.
+
+"""
+Sets up first game for the User and runs in a loop until User doesn't say
+ "yes" when asked if they want to play again.
+"""
 game_start(word)

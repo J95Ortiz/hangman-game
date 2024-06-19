@@ -1,17 +1,22 @@
 """
 HANGMAN GAME:
 
-- Code set up so that the User is greeted by the computer and asked for their name.
+- Code set up so that the User is greeted by the computer and asked for their
+name.
 
 - They are then asked to choose a difficulty level.
 
-- The computer will then choose a random wrd from the corresponding file and replace the letters with underscores.
+- The computer will then choose a random wrd from the corresponding file and
+ replace the letters with underscores.
 
-- A loop is then ran whereby the User is meant to guess a letter they think is in the word.
+- A loop is then ran whereby the User is meant to guess a letter they think is 
+in the word.
 
-- Once the word is guessed or they run out of lives the User is asked if they'd like a rematch. 
+- Once the word is guessed or they run out of lives the User is asked if they'd
+like a rematch.
 
-- If they do they are asked which level they want to play again and the process restarts, but if they say no then the computer thanks them for playing and the program ends.
+- If they do they are asked which level they want to play again and the process 
+restarts, but if they say no then the computer thanks them for playing and the program ends.
 
 """
 

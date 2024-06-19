@@ -45,7 +45,8 @@ Whatever level you choose you'll always get 7 chances so don't worry if you don'
 
 # Fn that asks User what level they want & uses it to open the relevant text file, then chooses a random word to use.
 def word_choice():
-     # Code requesting User chooses how hard the game should be
+    
+    # Code requesting User chooses how hard the game should be
     print("""
 Please type:
 

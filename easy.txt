@@ -3,3 +3,10 @@ cat
 small
 let
 bag
+shelf
+glass
+class
+sunny
+cart
+chips
+cake

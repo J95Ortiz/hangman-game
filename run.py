@@ -14,13 +14,15 @@ def introduction():
         """          
 Please only answer yes or no unless you're prompted for a different answer.
           
-Your goal is to guess a word by guessing a letter you think might be in the word.
+Your goal is to reveal the hidden word by guessing a letter you think might be in it.
           
 There are three difficulty levels you can choose from, or you can have a completely random word.
                
-If your guess is correct I'll pop it wherever it appears in the word, but if it's wrong you'll lose a life and the stickman won't be happy!
+If your guess is correct I'll pop the letter you choose wherever it appears in the word, but if it's wrong you'll lose a life and the stickman won't be happy!
             
 Whatever level you choose you'll always get 7 chances so don't worry if you don't get it as you'll have the chance for a rematch once the game has finished.
+
+\tGOOD LUCK!! 😁
                     """)
        
         
@@ -30,7 +32,17 @@ Whatever level you choose you'll always get 7 chances so don't worry if you don'
 # Fn takes level's value from prev. fn & uses it to open the relevant text file, then chooses a random word to use.
 def word_choice():
      # Code requesting User chooses how hard the game should be
-    print("\nPlease type:\n1 - For an Easy word \n2 - For an Average word \n3 - For a Hard word \n4 - For a Random word")
+    print("""
+Please type:
+
+    1 - For an Easy word 
+    
+    2 - For an Average word
+    
+    3 - For a Hard word 
+    
+    4 - For a Random word
+    """)
     
     while True:
         try:
@@ -298,12 +310,14 @@ def game_start(word):
        
     rematch = input("Did you want another game?\n")
     if rematch.lower() == "yes":
+        print("****************************")
         new_word = word_choice()
         game_start(new_word)
     
         
     else:
         print("Thanks for playing!")
+        print("****************************")
         
         
     

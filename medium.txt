@@ -3,3 +3,10 @@ levels
 essay
 project
 massage
+colleague
+variable
+python
+function
+portfolio
+method
+object

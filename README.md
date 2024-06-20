@@ -4,11 +4,11 @@
 
 ![AmIResponsive Screenshot]()
 
+**Link to live version**
+
 # CONTENTS
 
 - [INTRODUCTION](#introduction)
-
-**Link to live version**
 
 - [CONTENTS](#contents)
 
@@ -20,22 +20,37 @@
 
     - [Primary Goal](#primary-goal)
     - [Visitor Goals](#visitor-goals)
+      - [First Time Visitors](#first-time-visitors)
+      - [Returning Visitors](#returning-visitors)
+      - [Frequent Visitors](#frequent-visiors)
 
   - [Creation Process](#creation-process)
-    - [App Flowchart](#wireframes)
-    - [Structure](#structure)
-    - [Design Choices](#design-choices)
+    - [Planning](#planning)
+    - [App Flowchart](#app-flowchart)
+    - [App Structure](#app-structure)
+    - [Python Logic](#python-logic)
+  - [Design Choices](#design-choices)
 
 - [FEATURES](#features)
 
   - [Outline](#outline)
+
   - [Main Features](#main-features)
-    - [Navigation Bar](#navigation-bar)
-    - [Footer](#footer)
-    - [Index Page](#index-page)
-    - [Quiz Page](#quiz-page)
-    - [Results Screen](#results-screen)
+
+    - [Welcome Message](#welcome-message)
+    - [Instructions](#instructions)
+    - [Difficulty Levels](#difficulty-levels)
+    - [Game Process](#game-process)
+    - [Choosing a Word & Displaying It To The User](#choosing-a-word-and-displaying-it-to-the-user)
+    - [Processing The User's Guesses](#processing-the-users-guesses)
+    - [Lives & Stickman Art](#lives-and-stickman-art)
+    - [Game End & Rematch Request](#game-end-and-rematch-request)
+
   - [Future Features](#future-features)
+
+- [TECHNOLOGIES USED](#technologies-used)
+
+- [PYTHON PACKAGES](#python-packages)
 
 - [TESTING](#testing)
 
@@ -106,9 +121,9 @@ The app structure is simple
 
 ### GAME PROCESS
 
-### WORD FOR USER TO GUESS
+### CHOOSING A WORD AND DISPLAYING IT TO THE USER
 
-### PROCESSING THE USER'S GUESS
+### PROCESSING THE USER'S GUESSES
 
 ### LIVES AND STICKMAN ART
 

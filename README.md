@@ -15,7 +15,11 @@
 - [USER EXPERIENCE](#user-experience)
 
   - [Overview](#overview)
+
   - [User's Stories](#user's-stories)
+
+    - [Primary Goal](#primary-goal)
+    - [Visitor Goals](#visitor-goals)
 
   - [Creation Process](#creation-process)
     - [App Flowchart](#wireframes)
@@ -35,16 +39,25 @@
 
 - [TESTING](#testing)
 
-  - [Performance & Accessibility](#performance--accessibility)
-  - [Validator Testing](#validator-testing)
+  - [Manual Testing](#manual-testing)
+  - [External Testing](#external-testing)
 
-- [TROUBLESHOOTING](#testing)
+            ******Think about adding a separate testing.md file******
 
-- [DEPLOYMENT](#deployment)
+  - [Performance & Accessibility](#performance--accessibility) - Include in testing.md
+  - [Validator Testing](#validator-testing) - Include in testing.md
+
+  - [Troubleshooting](#troubleshooting) - Include in testing.md
+
+- [DEPLOYMENT TO HEROKU](#deployment)
+
+  - [Project Deployment](#project-deployment)
+  - [How to fork the repository from Github](#how-to-fork-the-repository-from-github)
+  - [How to clone the project](#how-to-clone-the-project)
 
 - [CREDIT](#credit)
-  - [Media Credts](#media-credits)
   - [Content Credits](#content-credit)
+  - [Media Credts](#media-credits)
   - [Acknowledgements](#acknowledgements)
 
 # USER EXPERIENCE
@@ -53,19 +66,29 @@
 
 ## USER'S STORIES
 
-## WIREFRAMES
+### PRIMARY GOAL
 
-![Balsamiq Computer Wireframe]()
-![Balsamiq Phone Wireframe]()
-![Balsamiq Tablet Wireframe]()
+### VISITOR GOALS
 
-## STRUCTURE
+#### FIRST TIME VISITORS
 
-The site is split into 2 main pages:
+#### RETURNING VISITORS
 
-1. [The Main Instructions Page](index.html)
+#### FREQUENT VISIORS
 
-2. [The Quiz Page](quiz.html)
+## CREATION PROCESS
+
+### PLANNING
+
+### APP FLOWCHART
+
+![Lucidcharts Flowchart]()
+
+### APP STRUCTURE
+
+The app structure is simple
+
+### PYTHON LOGIC
 
 ## DESIGN CHOICES
 
@@ -75,40 +98,56 @@ The site is split into 2 main pages:
 
 ## MAIN FEATURES
 
-### NAVIGATION BAR
+### WELCOME MESSAGE
 
-### FOOTER
+### INSTRUCTIONS
 
-### INDEX PAGE
+### DIFFICULTY LEVELS
 
-### QUIZ PAGE
+### GAME PROCESS
 
-### RESULTS SCREEN
+### WORD FOR USER TO GUESS
+
+### PROCESSING THE USER'S GUESS
+
+### LIVES AND STICKMAN ART
+
+### GAME END AND REMATCH REQUEST
 
 ## FUTURE FEATURES
 
+# TECHNOLOGIES USED
+
+# PYTHON PACKAGES
+
+- [Random](https.link to python random library documentation) - Used when selecting the word which the User will guess.
+
 # TESTING
 
-## PERFORMANCE & ACCESSIBILITY
+## MANUAL TESTING
 
-## VALIDATOR TESTING
+## EXTERNAL TESTING
 
-Index Page:
+                ******Think about adding a separate testing.md file******
 
-Quiz Page:
+## PERFORMANCE & ACCESSIBILITY - Include in testing.md
 
-CSS:
+## VALIDATOR TESTING - Include in testing.md
 
-Javascript:
+## TROUBLESHOOTING - Include in testing.md
 
-# TROUBLESHOOTING
+# DEPLOYMENT TO HEROKU
 
-# DEPLOYMENT
+## PROJECT DEPLOYMENT
+
+## HOW TO FORK THE REPOSITORY FROM GITHUB
+
+## HOW TO CLONE THE PROJECT
 
 # CREDIT
 
-## MEDIA CREDITS
-
 ## CONTENT CREDIT
+
+## MEDIA CREDITS
 
 ## ACKNOWLEDGEMENTS

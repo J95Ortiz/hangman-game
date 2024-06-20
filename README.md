@@ -4,7 +4,15 @@
 
 ![AmIResponsive Screenshot]()
 
-**Link to live version**
+This programme is a digital version of Hangman, the popular game believed to have started in the 17th Century.
+
+It is a Command Line Interface Application designed for a single User to play this classic game. It has three levels of difficulty and a random level, in which a word of any level can be picked.
+
+The game was designed so that anyone can play it, from children to adults. The aim is to improve the User's vocabulary and spelling abilities in a way that is interactive and doesn't feel boring.
+
+If you want to try it out, please follow the link below to access the application:
+
+#### <center>[Hangman Game](https://hangman-game-joe-ortiz-bab2aa56a3ab.herokuapp.com/)</center>
 
 # CONTENTS
 
@@ -41,10 +49,10 @@
     - [Instructions](#instructions)
     - [Difficulty Levels](#difficulty-levels)
     - [Game Process](#game-process)
-    - [Choosing a Word & Displaying It To The User](#choosing-a-word-and-displaying-it-to-the-user)
+    - [Choosing a Word & Displaying It To The User](#choosing-a-word--displaying-it-to-the-user)
     - [Processing The User's Guesses](#processing-the-users-guesses)
-    - [Lives & Stickman Art](#lives-and-stickman-art)
-    - [Game End & Rematch Request](#game-end-and-rematch-request)
+    - [Lives & Stickman Art](#lives--stickman-art)
+    - [Game End & Rematch Request](#game-end--rematch-request)
 
   - [Future Features](#future-features)
 
@@ -91,6 +99,10 @@
 
 #### FREQUENT VISIORS
 
+The game can be played by anyone, and more words will be added to the accompanying txt files in future.
+
+so that there is a larger selection of words to choose from, thus minimising any feeling of repetitiveness from a User who enjoys playing the game and does frequently.
+
 ## CREATION PROCESS
 
 ### PLANNING
@@ -121,15 +133,19 @@ The app structure is simple
 
 ### GAME PROCESS
 
-### CHOOSING A WORD AND DISPLAYING IT TO THE USER
+### CHOOSING A WORD & DISPLAYING IT TO THE USER
 
 ### PROCESSING THE USER'S GUESSES
 
-### LIVES AND STICKMAN ART
+### LIVES & STICKMAN ART
 
-### GAME END AND REMATCH REQUEST
+### GAME END & REMATCH REQUEST
 
 ## FUTURE FEATURES
+
+The game can be played by anyone, and more words will be added to the accompanying txt files in future.
+
+so that there is a larger selection of words to choose from, thus minimising any feeling of repetitiveness from a User who enjoys playing the game and does frequently.
 
 # TECHNOLOGIES USED
 

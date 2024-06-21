@@ -443,7 +443,7 @@ I used the following resources to assist me when building the Hangman game:
 
 ## MEDIA CREDITS
 
-- The design for the ASCII characters was obtained from this repository(https://github.com/realpython/materials/blob/master/hangman-tui/source_code/hangman.py) linked to the Real Python article mentioned in the previous section but their order was reversed so as to work correctly with my code.
+- The design for the ASCII characters was obtained from [this repository](https://github.com/realpython/materials/blob/master/hangman-tui/source_code/hangman.py) linked to the Real Python article mentioned in the previous section but their order was reversed so as to work correctly with my code.
 
 [Back to top](#contents)
 

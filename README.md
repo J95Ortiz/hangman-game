@@ -26,7 +26,7 @@ If you want to try it out, please follow the link below to access the applicatio
 
     - [Primary Goal](#primary-goal)
     - [Visitor Goals](#visitor-goals)
-      - [First Time Visitors](#first-time-visitors)
+      - [Fimmlrst Time Visitors](#first-time-visitors)
       - [Returning Visitors](#returning-visitors)
       - [Frequent Visitors](#frequent-visiors)
 
@@ -60,20 +60,19 @@ If you want to try it out, please follow the link below to access the applicatio
 
 - [TESTING](#testing)
 
-- [DEPLOYMENT TO HEROKU](#deployment)
+- [PROJECT DEPLOYMENT](#project-deployment)
 
-  - [Project Deployment](#project-deployment)
+  - [Deployment to Heroku](#deployment-to-heroku)
   - [How to fork the repository from Github](#how-to-fork-the-repository-from-github)
   - [How to clone the project](#how-to-clone-the-project)
 
 - [CREDIT](#credit)
+
   - [Content Credits](#content-credit)
   - [Media Credts](#media-credits)
   - [Acknowledgements](#acknowledgements)
 
 # USER EXPERIENCE
-
-[Back to top](#contents)
 
 ## USER'S STORIES
 
@@ -207,7 +206,9 @@ Once the User has been welcomed to the game, the display will load the instructi
 
 Once they have chosen, the next screen will tell them how many letters in the word, and ask them to type their first guess.
 
-The programme only accepts 1, 2, 3 or 4 as options at the Instructions stage, so if a User types anything else a message will pop up and ask them to please choose an option betwen 1 and 4. The input validation also takes into account any input that isn't numerical and in this case displays a slightly different message.
+The programme only accepts 1, 2, 3 or 4 as options at the Instructions stage, so if a User types anything else a message will pop up and ask them to please choose an option betwen 1 and 4.
+
+The input validation also takes into account any input that isn't numerical and in this case displays a slightly different message.
 
 [Back to top](#contents)
 
@@ -291,7 +292,7 @@ I would also like to add more animations and will look into applying more ASCII 
 - [Heroku](https://heroku.com/) - Used to deploy and run the application.
 - [Gitpod](https://gitpod.io/) - Used together with VS Code to build the application.
 - [Visual Studio Code Desktop Application](https://code.visualstudio.com/) - Used to code and build the application.
-- [CI Python Linter](https://pep8ci.herokuapp.com/#) - Used to check and validate the code for the application.
+- [CI Python Linter](https://pep8ci.herokuapp.com/) - Used to check and validate the code for the application.
 - [Lucid Charts](https://www.lucidchart.com/pages/) - Used to create the initial flowchart for the application.
 
 [Back to top](#contents)
@@ -308,9 +309,9 @@ All testing results and documentation can be found in [TESTING.md](TESTING.md)
 
 [Back to top](#contents)
 
-# DEPLOYMENT TO HEROKU
+# PROJECT DEPLOYMENT
 
-## PROJECT DEPLOYMENT
+## DEPLOYMENT TO HEROKU
 
 The full application was deployed using the [Heroku Website](https://heroku.com/).
 
@@ -326,7 +327,7 @@ The steps taken to deploy the application were as follows:
 
 5. Still within the "Settings" section, look for Buildpacks and click on "Add Buildpack". The builpacks required were Python and Nodejs (_it's really important that Python is the first buildpack selected, although the order can be altered by clicking and dragging the buildpacks_).
 
-6. Go back over to the "Deploy" section and link your github account by clicking on the Github button. Sign in to yourGithub account if necessary, and once this is done type the name of the repository you want to deploy and search for it using the Search button. Once you've found it press "Connect". This will link the Heroku app to the code in Github.
+6. Go back over to the "Deploy" section and link your github account by clicking on the Github button. Sign in to your Github account if necessary, and once this is done type the name of the repository you want to deploy and search for it using the Search button. Once you've found it press "Connect". This will link the Heroku app to the code in Github.
 
 7. There are two ways of finalising the application's deployment. At the bottom of the "Deploy" section you will find an "Automatic deploys" and a "Manual deploy" subsection and you'll have to choose which method you'd prefer. The main difference between these options is that the Manual deploy option deploys the application by running the current code, however if any changes are made these will not be reflected until another Manual deploy is actioned. I've added links for further information about both of these options below.
 
@@ -371,12 +372,28 @@ To clone this project follow the steps listed below:
 
 ## CONTENT CREDIT
 
+I used the following resources to assist me when building the Hangman game:
+
+- [Build a Hangman Game for the Command Line in Python](https://realpython.com/python-hangman/)
+
+- [Word Guessing game video](https://www.youtube.com/watch?v=N_6YIClAor0), and their [Github Repository](https://github.com/portfoliocourses/python-example-code/blob/main/word_guessing_game.py)
+
+- [How to Create a Hangman Game Using Python](https://www.makeuseof.com/python-game-hangman-create/?utm_source=flipboard&utm_content=topic%2Fadventuregame), and their [Github repository](https://github.com/makeuseofcode/Hangman-Game/blob/main/hangman.py)
+
 [Back to top](#contents)
 
 ## MEDIA CREDITS
 
+- The design for the ASCII characters was obtained from this repository(https://github.com/realpython/materials/blob/master/hangman-tui/source_code/hangman.py) linked to the Real Python article mentioned in the previous section but their order was reversed so as to work correctly with my code.
+
 [Back to top](#contents)
 
 ## ACKNOWLEDGEMENTS
+
+I would like to mention my Mentor, [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) for his support and feedback during the building process. His suggerstions and comments on the application and how to improve it helped me have the confidence to go further and test my knowledge.
+
+A further acknowledgement to [Lucia](https://github.com/lucia2007) as her [README.md](https://github.com/lucia2007/towers-of-hanoi/blob/main/README.md) file was a great tool to help me set out the structure for mine.
+
+I would also like to add a further thank you to the Student Support Team at Code Institute for their assistance so far on the course.
 
 [Back to top](#contents)

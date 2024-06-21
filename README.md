@@ -2,7 +2,7 @@
 
 # INTRODUCTION
 
-![AmIResponsive Screenshot]()
+![AmIResponsive Screenshot](readme_images/amiresponsive_screenshot.png)
 
 This program is a digital version of Hangman, the popular game believed to have started in the 17th Century.
 
@@ -138,7 +138,7 @@ After doing some research into the different projects I had in mind, I decided t
 
 ### APP FLOWCHART
 
-![Lucidcharts Flowchart]()
+![Lucidcharts Flowchart](readme_images/hangman_flowchart.png)
 
 The flowchart was created using [Lucid Charts](https://www.lucidchart.com/pages/).
 
@@ -198,6 +198,8 @@ The game outline is as follows:
 
 ### WELCOME MESSAGE
 
+![Welcome message](readme_images/hangman_welcome.png)
+
 When a User starts the application they are greeted by the computer and asked to enter their name.
 
 Only letters and numbers are allowed, so input validation checks for any special characters and ensures that a blank name isn't entered either. If the program encounters any characters which aren't accepted, the User will see a message asking them to only input letters and numbers.
@@ -208,6 +210,8 @@ The computer then displays a message using the name the User entered welcoming t
 
 ### INSTRUCTIONS
 
+![Instructions](readme_images/hangman_instructions.png)
+
 Once the User has been welcomed, the display will load the instructions and ask them to choose a level of difficulty.
 
 The program only accepts 1, 2, 3 or 4 as options at the Instructions stage, so if a User types anything else a message will ask them to choose an option betwen 1 and 4.
@@ -217,6 +221,8 @@ The input validation also takes into account any input that isn't numerical and 
 [Back to top](#contents)
 
 ### DIFFICULTY LEVELS
+
+![Levels](readme_images/hangman_level_choice.png)
 
 There are three difficulty levels a User can choose from, as well as an option for a random word.
 
@@ -240,6 +246,8 @@ Every letter in the word is then replaced with an underscore and this is display
 
 ### PROCESSING THE USER'S GUESSES
 
+![User guess](readme_images/hangman_guess2.png)
+
 Once the User has entered their guess the program will check whether that letter is in the word.
 
 The application will also check that the input isn't blank or more than one character in length and asks the user to only input letters if their guess is a number or special character.
@@ -251,6 +259,8 @@ When the Users are asked for their next guess they are shown the word which now 
 If that letter isn't in the word, a message will tell them that it isn't in. The stickman is also shown at this stage with a message letting the User know how many chances they have left.
 
 Each guess is added to a list which is displayed back to the User after each turn so they can see what letters they've guessed. However, if the same letter is entered more than once a message will appear to tell them that they've already tried it.
+
+![User guessed same letter twice](readme_images/hangman_guess3.png)
 
 The process is repeated until the User runs out of chances, or they guess all the letters and the word is revealed.
 
@@ -265,10 +275,27 @@ If they don't guess the word before running out of lives then they will see a me
 Each time an incorrect guess is entered the User is told that the letter isn't in. The stickman will also be displayed at this stage.
 
 The stickman the User sees will depend on the lives they have left and was created using ASCII characters.
+![Hangman image 1](readme_images/hangman1.png)
+
+![Hangman image 2](readme_images/hangman2.png)
+
+![Hangman image 3](readme_images/hangman3.png)
+
+![Hangman image 4](readme_images/hangman4.png)
+
+![Hangman image 5](readme_images/hangman5.png)
+
+![Hangman image 6](readme_images/hangman6.png)
+
+![Hangman image 7](readme_images/hangman7.png)
 
 [Back to top](#contents)
 
 ### GAME END & REMATCH REQUEST
+
+![Game win](readme_images/hangman_win.png)
+
+![Game loss](readme_images/hangman_loss.png)
 
 When the word has been guessed or the User has no more lives left, a message will ask the User if they'd like to play again.
 
@@ -276,7 +303,11 @@ Input validation checks the input and if it's anything other than "yes" or "no",
 
 If they don't want to play again the computer thanks them for playing and the application quits.
 
+![Rematch no](readme_images/hangman_rematch_no.png)
+
 If they choose to have another game they will have to choose the level they want, and the game restarts.
+
+![Rematch yes](readme_images/hangman_rematch_yes.png)
 
 [Back to top](#contents)
 
@@ -328,30 +359,47 @@ The steps taken to deploy the application were as follows:
 
 1. Accessed the Heroku website and logged into my account. If you don't have an account you can follow [this link](https://signup.heroku.com/login) to create one.
 
+![Heroku Dashboard](readme_images/heroku_dashboard.png)
+
 2. On the dashboard click on "New", and then "Create new app".
 
 3. I chose an app name (hangman-game-joe-ortiz), changed the region to "Europe" and clicked "Create app".
 
+![Heroku Create App](readme_images/heroku_create_app.png)
+
 4. Once this is done, navigate over to the "Settings" section and click on "Reveal Config Vars". Enter "PORT" as the key, and "8000" as the value.
+
+![Heroku Config Vars](readme_images/heroku_config_vars.png)
 
 5. Still within the "Settings" section, look for Buildpacks and click on "Add Buildpack". The builpacks required were Python and Nodejs (_it's really important that Python is the first buildpack selected, although the order can be altered by clicking and dragging the buildpacks_).
 
+![Heroku Buildpacks](readme_images/heroku_buildpacks.png)
+
 6. Go back over to the "Deploy" section and link your GitHub account by clicking on the GitHub button. Sign in to your GitHub account if necessary, and once this is done type the name of the repository you want to deploy and search for it using the Search button. Once you've found it press "Connect". This will link the Heroku app to the code in GitHub.
+
+![Heroku Link to GitHub](readme_images/heroku_github_link.png)
 
 7. There are two ways of finalising the application's deployment. At the bottom of the "Deploy" section, you will find an "Automatic deploys" and a "Manual deploy" subsection and you'll have to choose which method you'd prefer. The main difference between these options is that the Manual deploy option deploys the application by running the current code, however if any changes are made these will not be reflected until another Manual deploy is actioned. I've added links for further information about both of these options below.
 
    - [Heroku Automatic Deploys](https://devcenter.heroku.com/articles/github-integration#automatic-deploys)
+
    - [Heroku Manual Deploys](https://devcenter.heroku.com/articles/github-integration#manual-deploys)
 
 8. On this occasion I chose the Automatic deploys option as it updates the application code automatically on Heroku every time a new commit is pushed through to GitHub.
+
+![Heroku Deployment](readme_images/heroku_deployment.png)
 
 9. Once the deployment has finished, a message will appear to confirm this above a button that says "view" which will take you to the deployed application.
 
 10. Click on the "RUN PROGRAM" button on the top left and the application will run.
 
+![Hangman App](readme_images/hangman_app.png)
+
 [Back to top](#contents)
 
 ## HOW TO FORK THE REPOSITORY FROM GITHUB
+
+![GitHub Cloning](readme_images/github_cloning.png)
 
 The steps required to fork [this repository](https://github.com/J95Ortiz/hangman-game) are listed below:
 
@@ -360,6 +408,8 @@ The steps required to fork [this repository](https://github.com/J95Ortiz/hangman
 2. In the code section, there is a button that says "Fork" located just above the "About" section.
 
 3. Click on this button and the fork will be created.
+
+![GitHub Forking](readme_images/github_forking.png)
 
 [Back to top](#contents)
 

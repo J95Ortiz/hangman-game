@@ -298,16 +298,17 @@ I would also like to add more animations and will look into applying more ASCII 
 # TECHNOLOGIES USED
 
 - [Github](https://github.com/) - Used to create and host the repository.
-- [Heroku](https://heroku.com/) - Used to deploy the application
-- [Gitpod](https://gitpod.io/) - Used
-- [Visual Studio Code Desktop Application](https://code.visualstudio.com/) - Used
-- [CI Python Linter](https://pep8ci.herokuapp.com/#) - Used
+- [Heroku](https://heroku.com/) - Used to deploy and run the application.
+- [Gitpod](https://gitpod.io/) - Used together with VS Code to build the application.
+- [Visual Studio Code Desktop Application](https://code.visualstudio.com/) - Used to code and build the application.
+- [CI Python Linter](https://pep8ci.herokuapp.com/#) - Used to check and validate the code for the application.
+- [Lucid Charts](https://www.lucidchart.com/pages/) - Used to create the initial flowchart for the application.
 
 [Back to top](#contents)
 
 # PYTHON PACKAGES
 
-- [Random](https.link to python random library documentation) - Used when selecting the word which the User will guess.
+- [Random](https://docs.python.org/3/library/random.html) - Used to select a word for the User to guess.
 
 [Back to top](#contents)
 

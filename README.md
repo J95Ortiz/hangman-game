@@ -60,16 +60,6 @@ If you want to try it out, please follow the link below to access the applicatio
 
 - [TESTING](#testing)
 
-  - [Manual Testing](#manual-testing)
-  - [External Testing](#external-testing)
-
-            ******Think about adding a separate testing.md file******
-
-  - [Performance & Accessibility](#performance--accessibility) - Include in testing.md
-  - [Validator Testing](#validator-testing) - Include in testing.md
-
-  - [Troubleshooting](#troubleshooting) - Include in testing.md
-
 - [DEPLOYMENT TO HEROKU](#deployment)
 
   - [Project Deployment](#project-deployment)
@@ -314,49 +304,70 @@ I would also like to add more animations and will look into applying more ASCII 
 
 # TESTING
 
-[Back to top](#contents)
-
-## MANUAL TESTING
-
-[Back to top](#contents)
-
-## EXTERNAL TESTING
-
-[Back to top](#contents)
-
-                ******Think about adding a separate testing.md file******
-
-## PERFORMANCE & ACCESSIBILITY - Include in testing.md
-
-[Back to top](#contents)
-
-## VALIDATOR TESTING - Include in testing.md
-
-[Back to top](#contents)
-
-## TROUBLESHOOTING - Include in testing.md
+All testing results and documentation can be found in [TESTING.md](TESTING.md)
 
 [Back to top](#contents)
 
 # DEPLOYMENT TO HEROKU
 
-[Back to top](#contents)
-
 ## PROJECT DEPLOYMENT
+
+The full application was deployed using the [Heroku Website](https://heroku.com/).
+
+The steps taken to deploy the application were as follows:
+
+1. Accessed the Heroku website and logged into my account. If you don't have an account follow [this link](https://signup.heroku.com/login) to create one.
+
+2. On the dashboard click on "New", and then "Create new app".
+
+3. I chose an app name (hangman-game-joe-ortiz), changed the region to "Europe" and clicked "Create app".
+
+4. Once this is done, navigate over to the "Settings" section and click on "Reveal Config Vars". Enter "PORT" as the key, and "8000" as the value.
+
+5. Still within the "Settings" section, look for Buildpacks and click on "Add Buildpack". The builpacks required were Python and Nodejs (_it's really important that Python is the first buildpack selected, although the order can be altered by clicking and dragging the buildpacks_).
+
+6. Go back over to the "Deploy" section and link your github account by clicking on the Github button. Sign in to yourGithub account if necessary, and once this is done type the name of the repository you want to deploy and search for it using the Search button. Once you've found it press "Connect". This will link the Heroku app to the code in Github.
+
+7. There are two ways of finalising the application's deployment. At the bottom of the "Deploy" section you will find an "Automatic deploys" and a "Manual deploy" subsection and you'll have to choose which method you'd prefer. The main difference between these options is that the Manual deploy option deploys the application by running the current code, however if any changes are made these will not be reflected until another Manual deploy is actioned. I've added links for further information about both of these options below.
+
+   - [Heroku Automatic Deploys](https://devcenter.heroku.com/articles/github-integration#automatic-deploys)
+   - [Heroku Manual Deploys](https://devcenter.heroku.com/articles/github-integration#manual-deploys)
+
+8. On this occasion I chose the Automatic deploys option as it updates the application code automatically on Heroku every time a new commit is pushed through to Github.
+
+9. Once the deployment has finished, a message will appear to confirm this above a button that says "view" which will take you to the deployed application.
+
+10. Click on the "RUN PROGRAM" button on the top left and the application will run.
 
 [Back to top](#contents)
 
 ## HOW TO FORK THE REPOSITORY FROM GITHUB
 
+The steps required to fork [this repository](https://github.com/J95Ortiz/hangman-game) are listed below:
+
+1. Follow the link above to locate my original repository.
+
+2. In the code section, there is a button that says "Fork" located just above the "About" section.
+
+3. Click on this button and the fork will be created.
+
 [Back to top](#contents)
 
 ## HOW TO CLONE THE PROJECT
 
+To clone this project follow the steps listed below:
+
+1. Navigate over to [this repository](https://github.com/J95Ortiz/hangman-game) and click on the green "Code" button located next to "Add file".
+
+2. From the dropdown copy the URL link. This can be done using the copy button next to the link or by highlighting it and copying it.
+
+3. Within the IDE open Git Bash, change the working directory's location to one you want to work off, at which point the cloned directory will be crated.
+
+4. Type git clone, and paste the URL copied in step 1 and the clone will be created.
+
 [Back to top](#contents)
 
 # CREDIT
-
-[Back to top](#contents)
 
 ## CONTENT CREDIT
 

@@ -40,7 +40,7 @@ The app has been built so that whenever a User's input is required this is valid
 
 There were some bugs which arose during the building process and these are listed below along with the steps taken to resolve them:
 
-- If a User tried a letter that wasn't correct, and then tried it again ewithin the same game the app would take away two lives instead of just one. A condition was then added which checked if their guess had been tried already and if so, no lives would be taken and the User would see a message telling them they already tried it.
+- If a User tried a letter that wasn't correct, and then tried it again within the same game the app would take away two lives instead of just one. A condition was then added which checked if their guess had been tried already and if so, no lives would be taken and the User would see a message telling them they already tried it.
 
 - Originally the introduction() function would accept blank input and special characters, so a condition was applied so only letters and/or numbers are now accepted.
 

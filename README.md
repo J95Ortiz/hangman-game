@@ -26,7 +26,7 @@ If you want to try it out, please follow the link below to access the applicatio
 
     - [Primary Goal](#primary-goal)
     - [Visitor Goals](#visitor-goals)
-      - [Fimmlrst Time Visitors](#first-time-visitors)
+      - [First Time Visitors](#first-time-visitors)
       - [Returning Visitors](#returning-visitors)
       - [Frequent Visitors](#frequent-visiors)
 
@@ -86,7 +86,7 @@ The main aim of the game is for Users to improve their spelling and vocabulary.
 
 ### VISITOR GOALS
 
-The application was created with the aim of being used as a game. Its use should feel simple and straightforwards, and instructions have been provided to ensure users feel confident they can use it without issues or difficulties.
+The application was created as a game. Its use should feel simple and straightforwards, and instructions have been provided to ensure users feel confident they can use it without issues or difficulties.
 
 The User can choose a difficulty level at the beginning, and once the game has completed they are asked if they want to replay. They are also able to choose a difficulty at this stage.
 
@@ -252,7 +252,7 @@ Once the User has entered their guess the program will check whether that letter
 
 The application will also check that the input isn't blank or more than one character in length and asks the user to only input letters if their guess is a number or special character.
 
-If the User's guess appears in the word the screen will display a message confirming their guess is right and a loop is ran which replaces the underscores with the letter.
+If the User's guess appears in the word the screen will display a message confirming their guess is right and a loop is ran replacing the underscores with that letter.
 
 When the Users are asked for their next guess they are shown the word which now includes the letter they last guessed.
 
@@ -399,7 +399,7 @@ The steps taken to deploy the application were as follows:
 
 ## HOW TO FORK THE REPOSITORY FROM GITHUB
 
-![GitHub Cloning](readme_images/github_cloning.png)
+![GitHub Forking](readme_images/github_forking.png)
 
 The steps required to fork [this repository](https://github.com/J95Ortiz/hangman-game) are listed below:
 
@@ -409,11 +409,11 @@ The steps required to fork [this repository](https://github.com/J95Ortiz/hangman
 
 3. Click on this button and the fork will be created.
 
-![GitHub Forking](readme_images/github_forking.png)
-
 [Back to top](#contents)
 
 ## HOW TO CLONE THE PROJECT
+
+![GitHub Cloning](readme_images/github_cloning.png)
 
 To clone this project follow the steps listed below:
 
